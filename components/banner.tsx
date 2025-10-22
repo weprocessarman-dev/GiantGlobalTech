@@ -87,16 +87,25 @@ export default function Banner() {
             />
           ))}
           <Spline
-            scene="https://prod.spline.design/uMchW1Yhk3YPEhQh/scene.splinecode"
-            style={{
-              width: '120%',
-              height: '120%',
-              position: 'absolute',
-              left: '-10%',
-              top: '-1%',
-              zIndex: 2
-            }}
-          />
+                      scene="https://prod.spline.design/uMchW1Yhk3YPEhQh/scene.splinecode"
+                      style={{
+                        width: '120%',
+                        height: '120%',
+                        position: 'absolute',
+                        left: '-10%',
+                        top: '-1%',
+                        zIndex: 2,
+                        pointerEvents: 'auto'
+                      }}
+                      onLoad={(spline) => {
+                        const canvas = spline.canvas;
+                        if (canvas) {
+                          canvas.addEventListener('wheel', (e) => {
+                            window.scrollBy(0, e.deltaY);
+                          }, { passive: true });
+                        }
+                      }}
+                    />
         </div>
       </div>
 
@@ -111,7 +120,7 @@ export default function Banner() {
           transform: 'translateX(-50%) translateY(50%)',
           width: 'auto',
           height: 'auto',
-          zIndex: 10,
+          zIndex: 5,
           pointerEvents: 'none',
         }}
       />

@@ -111,7 +111,7 @@ export default function SpeakButton({ onVoiceStart }: SpeakButtonProps) {
   return (
     <div 
       className="absolute w-[131.62px] h-[45.29px] left-1/2 -translate-x-1/2"
-      style={{ top: '874.36px' }}
+      style={{ top: '874.36px', zIndex: 10 }}
     >
       <div 
         className="absolute w-[131.62px] h-[45.29px] rounded-full"

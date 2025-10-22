@@ -5,7 +5,7 @@ import Waves from './Waves';
 
 export default function DesignBanner() {
   return (
-    <div style={{ width: '100%', position: 'relative', background: 'transparent', overflow: 'visible' }}>
+    <div style={{ width: '100%', position: 'relative', background: 'transparent', overflow: 'visible', maxWidth: '100%' }}>
       <style jsx>{`
         @media (max-width: 768px) {
           .banner-section {
@@ -35,12 +35,10 @@ export default function DesignBanner() {
         className="banner-section"
         style={{
           width: '100%',
-          height: 890,
-          marginTop: 0,
+          height: '890px',
           overflow: 'visible',
           position: 'relative',
           zIndex: 0,
-          pointerEvents: 'none',
           background: 'transparent',
         }}
       >
@@ -62,58 +60,58 @@ export default function DesignBanner() {
         />
 
 
-        <h1
-          className="banner-title"
-          style={{
-            position: 'absolute',
-            width: 758.71,
-            height: 148.74,
-            left: '50%',
-            top: 400.12,
-            transform: 'translateX(-50%)',
-            fontFamily: 'Inter',
-            fontStyle: 'normal',
-            fontWeight: 700,
-            fontSize: 150,
-            lineHeight: '150px',
-            textAlign: 'center',
-            background: 'linear-gradient(90deg, rgba(255,255,255,0.2) 0%, #FFFFFF 50.49%, rgba(255,255,255,0.2) 100%)',
-            WebkitBackgroundClip: 'text',
-            WebkitTextFillColor: 'transparent',
-            backgroundClip: 'text',
-            color: 'transparent',
-            margin: 0,
-            padding: 0,
-            zIndex: 2,
-            userSelect: 'none',
-          }}
-        >
-          DESIGN
-        </h1>
-        <p
-          className="banner-text"
-          style={{
-            position: 'absolute',
-            width: 652.46,
-            height: 50.47,
-            left: '50%',
-            top: 550.3,
-            transform: 'translateX(-50%)',
-            fontFamily: 'Inter',
-            fontStyle: 'normal',
-            fontWeight: 400,
-            fontSize: 18,
-            lineHeight: '22px',
-            textAlign: 'center',
-            color: '#FFFFFF',
-            margin: 0,
-            padding: 0,
-            zIndex: 2,
-            userSelect: 'none',
-          }}
-        >
-          Lorem ipsum dolor sit amet, consectetur elit, sed tempor dolor sit amet, consectetur elit, ipsum
-        </p>
+        <div style={{ position: 'absolute', inset: 0, zIndex: 10 }}>
+          <h1
+            className="banner-title"
+            style={{
+              position: 'absolute',
+              width: 758.71,
+              height: 148.74,
+              left: '50%',
+              top: 400.12,
+              transform: 'translateX(-50%)',
+              fontFamily: 'Inter',
+              fontStyle: 'normal',
+              fontWeight: 700,
+              fontSize: 150,
+              lineHeight: '150px',
+              textAlign: 'center',
+              background: 'linear-gradient(90deg, rgba(255,255,255,0.2) 0%, #FFFFFF 50.49%, rgba(255,255,255,0.2) 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+              color: 'transparent',
+              margin: 0,
+              padding: 0,
+              userSelect: 'none',
+            }}
+          >
+            DESIGN
+          </h1>
+          <p
+            className="banner-text"
+            style={{
+              position: 'absolute',
+              width: 652.46,
+              height: 50.47,
+              left: '50%',
+              top: 550.3,
+              transform: 'translateX(-50%)',
+              fontFamily: 'Inter',
+              fontStyle: 'normal',
+              fontWeight: 400,
+              fontSize: 18,
+              lineHeight: '22px',
+              textAlign: 'center',
+              color: '#FFFFFF',
+              margin: 0,
+              padding: 0,
+              userSelect: 'none',
+            }}
+          >
+            Lorem ipsum dolor sit amet, consectetur elit, sed tempor dolor sit amet, consectetur elit, ipsum
+          </p>
+        </div>
         
         {/* Flare Image at Bottom Border */}
       </section>

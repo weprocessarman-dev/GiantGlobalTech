@@ -162,7 +162,7 @@ const CardNav: React.FC<CardNavProps> = ({
     <>
       <style jsx>{`
         .card-nav-container {
-          position: absolute;
+          position: fixed;
           top: 2em;
           left: 50%;
           transform: translateX(-50%) translateY(-20px);
@@ -259,6 +259,11 @@ const CardNav: React.FC<CardNavProps> = ({
 
         .logo {
           height: 28px;
+        }
+
+        .card-nav-top a {
+          text-decoration: none;
+          height: 100%;
         }
 
         .card-nav-cta-button {
@@ -397,7 +402,6 @@ const CardNav: React.FC<CardNavProps> = ({
         <nav
           ref={navRef}
           className={`card-nav ${isExpanded ? 'open' : ''}`}
-          style={{ backgroundColor: 'rgba(135, 135, 135, 0.2)' }}
         >
           <div className="card-nav-top">
             <div
@@ -418,12 +422,14 @@ const CardNav: React.FC<CardNavProps> = ({
               </a>
             </div>
 
-            <button 
-              type="button" 
-              className="card-nav-cta-button"
-            >
-              <span>Get Started</span>
-            </button>
+            <a href="/contact">
+              <button 
+                type="button" 
+                className="card-nav-cta-button"
+              >
+                <span>Get Started</span>
+              </button>
+            </a>
           </div>
 
           <div className="card-nav-content" aria-hidden={!isExpanded}>

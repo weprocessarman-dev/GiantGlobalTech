@@ -9,17 +9,19 @@ const Header = () => {
       bgColor: "#0D0716",
       textColor: "#fff",
       links: [
-        { label: "Company", ariaLabel: "About Company", href: "#company" },
-        { label: "Careers", ariaLabel: "About Careers", href: "#careers" }
+        { label: "About Us", ariaLabel: "About Us", href: "/about" },
+        // { label: "Company", ariaLabel: "About Company", href: "#company" },
+        // { label: "Careers", ariaLabel: "About Careers", href: "#careers" }
       ]
     },
     {
-      label: "Projects", 
+      label: "Services", 
       bgColor: "#170D27",
       textColor: "#fff",
       links: [
-        { label: "Featured", ariaLabel: "Featured Projects", href: "#featured" },
-        { label: "Case Studies", ariaLabel: "Project Case Studies", href: "#case-studies" }
+        { label: "Design", ariaLabel: "Design Services", href: "/design" },
+        { label: "Website", ariaLabel: "Website Services", href: "#website" },
+        { label: "Marketing", ariaLabel: "Marketing Services", href: "#marketing"}
       ]
     },
     {
