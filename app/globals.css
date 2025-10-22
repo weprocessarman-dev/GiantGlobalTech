@@ -1,0 +1,207 @@
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+@layer base {
+  body {
+    background-color: #000013;
+    margin: 0;
+    padding: 0;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .gradient-text {
+    font-size: 50px;
+    font-weight: 600;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.3) 20%, #FFFFFF 100%, rgba(255, 255, 255, 0.2) 20%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+/* New additions for tracing beam animation - won't affect existing styles */
+@layer utilities {
+  .backdrop-blur-xs {
+    backdrop-filter: blur(2px);
+  }
+  
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+  
+  .bg-background {
+    background-color: hsl(var(--background));
+  }
+  
+  .text-foreground {
+    color: hsl(var(--foreground));
+  }
+}
+
+/* Extended color variables for shadcn compatibility */
+:root {
+  --border: 214.3 31.8% 91.4%;
+  --input: 214.3 31.8% 91.4%;
+  --ring: 222.2 84% 4.9%;
+  --radius: 0.5rem;
+}
+
+.dark {
+  --border: 217.2 32.6% 17.5%;
+  --input: 217.2 32.6% 17.5%;
+  --ring: 212.7 26.8% 83.9%;
+}
+
+/* Custom scrollbar - only if not already defined */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Motion reduction for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .motion-reduce\:hidden {
+    display: none;
+  }
+}
+
+/* Mobile Responsive Styles - Banner to End */
+@media (max-width: 768px) {
+  .about-container {
+    width: 95% !important;
+    height: auto !important;
+    padding: 30px 20px !important;
+  }
+  
+  .about-heading h2 {
+    font-size: 32px !important;
+  }
+  
+  .left-content {
+    position: relative !important;
+    transform: none !important;
+    left: auto !important;
+    bottom: auto !important;
+    margin: 20px auto !important;
+  }
+  
+  .blue-circle {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  
+  .right-content {
+    position: relative !important;
+    width: 100% !important;
+    transform: none !important;
+    padding: 20px !important;
+  }
+  
+  .about-text {
+    font-size: 14px !important;
+  }
+  
+  .external-card,
+  .vector-in-card {
+    display: none !important;
+  }
+  
+  .wave-diagram-container {
+    width: 95% !important;
+    height: auto !important;
+    padding: 20px !important;
+  }
+  
+  .wave-diagram-container h2 {
+    font-size: 32px !important;
+  }
+  
+  .wave-diagram-container svg {
+    width: 100% !important;
+    height: auto !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container,
+  .wave-diagram-container {
+    padding: 15px !important;
+  }
+  
+  .about-heading h2,
+  .wave-diagram-container h2 {
+    font-size: 24px !important;
+  }
+  
+  .about-text,
+  .wave-diagram-container p {
+    font-size: 12px !important;
+  }
+  
+  .blue-circle {
+    width: 150px !important;
+    height: 150px !important;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+  .about-container {
+    padding: 20px 30px !important;
+  }
+  
+  .about-heading h2 {
+    font-size: 28px !important;
+    margin-bottom: 12px !important;
+  }
+  
+  .about-text {
+    font-size: 14px !important;
+    margin-bottom: 8px !important;
+  }
+}
