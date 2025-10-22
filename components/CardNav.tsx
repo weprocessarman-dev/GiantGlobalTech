@@ -162,13 +162,13 @@ const CardNav: React.FC<CardNavProps> = ({
     <>
       <style jsx>{`
         .card-nav-container {
-          position: fixed;
+          position: absolute;
           top: 2em;
           left: 50%;
-          transform: translateX(-50%) translateY(-20px);
+          transform: translateX(-50%);
           width: 90%;
           max-width: 800px;
-          z-index: 99;
+          z-index: 9999;
           box-sizing: border-box;
           opacity: 0;
           visibility: hidden;
@@ -195,14 +195,16 @@ const CardNav: React.FC<CardNavProps> = ({
           display: block;
           height: 60px;
           padding: 0;
-          background-color: rgba(255, 255, 255, 0.1);
+          background-color: rgba(255, 255, 255, 0.15);
           border: 0.5px solid rgba(255, 255, 255, 0.2);
           border-radius: 0.75rem;
           box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-          backdrop-filter: blur(15px);
+          backdrop-filter: blur(50px) saturate(180%);
+          -webkit-backdrop-filter: blur(50px) saturate(180%);
           position: relative;
           overflow: hidden;
           will-change: height;
+          isolation: isolate;
         }
 
         .card-nav-top {
@@ -402,6 +404,7 @@ const CardNav: React.FC<CardNavProps> = ({
         <nav
           ref={navRef}
           className={`card-nav ${isExpanded ? 'open' : ''}`}
+          // style={{ backdropFilter: 'blur(50px) saturate(180%)', WebkitBackdropFilter: 'blur(50px) saturate(180%)' }}
         >
           <div className="card-nav-top">
             <div

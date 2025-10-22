@@ -15,7 +15,7 @@ export default function ConnectionLines() {
   const branchLineOffset = useTransform(scrollYProgress, [0, 1], [1000, 0]);
 
   return (
-    <section className="w-full" style={{ padding: '50px 0', position: 'relative', minHeight: '400px', marginTop: '100px' }}>
+    <section className="w-full" style={{ padding: '50px 0', position: 'relative', minHeight: '400px', marginTop: '100px', maxWidth: '1440px', margin: '100px auto 0' }}>
       <style jsx>{`
         @keyframes flowGlow {
           0% { stroke-dashoffset: 200; opacity: 0; }
@@ -30,13 +30,20 @@ export default function ConnectionLines() {
           90% { opacity: 1; }
           100% { stroke-dashoffset: 0; opacity: 0; }
         }
+
+        @media (max-width: 768px) {
+          section {
+            padding: 30px 0 !important;
+            min-height: 250px !important;
+            margin-top: 50px !important;
+          }
+        }
       `}</style>
       <div className="container mx-auto px-4">
         <div 
           ref={containerRef} 
           style={{
             width: '100%',
-            maxWidth: '1200px',
             height: '250px',
             margin: '0 auto',
             position: 'relative',
