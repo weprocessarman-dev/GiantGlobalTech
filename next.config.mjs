@@ -14,6 +14,9 @@ const nextConfig = {
   experimental: {
     esmExternals: 'loose',
   },
+  compress: true,
+  poweredByHeader: false,
+  reactStrictMode: true,
   async headers() {
     return [
       {

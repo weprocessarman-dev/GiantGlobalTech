@@ -1,8 +1,9 @@
 'use client';
 
-import Spline from '@splinetool/react-spline';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import SpeakButton from './speak-button';
+
+const Spline = lazy(() => import('@splinetool/react-spline'));
 
 export default function Banner() {
   const [isVoiceActive, setIsVoiceActive] = useState(false);
@@ -86,26 +87,46 @@ export default function Banner() {
               }}
             />
           ))}
-          <Spline
-                      scene="https://prod.spline.design/uMchW1Yhk3YPEhQh/scene.splinecode"
-                      style={{
-                        width: '120%',
-                        height: '120%',
-                        position: 'absolute',
-                        left: '-10%',
-                        top: '-1%',
-                        zIndex: 2,
-                        pointerEvents: 'auto'
-                      }}
-                      onLoad={(spline) => {
-                        const canvas = spline.canvas;
-                        if (canvas) {
-                          canvas.addEventListener('wheel', (e) => {
-                            window.scrollBy(0, e.deltaY);
-                          }, { passive: true });
-                        }
-                      }}
-                    />
+          <Suspense fallback={
+            <div style={{
+              width: '100%',
+              height: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              background: 'radial-gradient(circle, rgba(13,61,238,0.2) 0%, transparent 70%)'
+            }}>
+              <div style={{
+                width: '60px',
+                height: '60px',
+                border: '3px solid rgba(13,61,238,0.3)',
+                borderTop: '3px solid rgba(13,61,238,0.9)',
+                borderRadius: '50%',
+                animation: 'spin 1s linear infinite'
+              }} />
+            </div>
+          }>
+            <Spline
+              scene="https://prod.spline.design/uMchW1Yhk3YPEhQh/scene.splinecode"
+              style={{
+                width: '120%',
+                height: '120%',
+                position: 'absolute',
+                left: '-10%',
+                top: '-1%',
+                zIndex: 2,
+                pointerEvents: 'auto'
+              }}
+              onLoad={(spline) => {
+                const canvas = spline.canvas;
+                if (canvas) {
+                  canvas.addEventListener('wheel', (e) => {
+                    window.scrollBy(0, e.deltaY);
+                  }, { passive: true });
+                }
+              }}
+            />
+          </Suspense>
         </div>
       </div>
 
@@ -134,6 +155,9 @@ export default function Banner() {
 
       {/* CSS Animation for Horizontal Glow Effect */}
       <style jsx>{`
+        @keyframes spin {
+          to { transform: rotate(360deg); }
+        }
         @keyframes horizontalGlow {
           0% {
             box-shadow: 

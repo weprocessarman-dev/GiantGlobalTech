@@ -1,17 +1,19 @@
 'use client';
 
+import dynamic from 'next/dynamic';
 import Banner from '@/components/banner';
 import Heading from '@/components/heading';
 import ConnectionLines from '@/components/connection-lines';
 import FeatureCards from '@/components/feature-cards';
-import WavesSection from '@/components/waves-section';
-import AboutGGT from '@/components/aboutggt';
-import WaveDiagram from '@/components/wave-diagram';
-import FAQSection from '@/components/faq-section';
-import ReviewsSection from '@/components/reviews-section';
-import GradientSection from '@/components/gradient-section';
-import StartMovingFast from '@/components/start-moving-fast';
-import NewsletterSection from '@/components/newslettersection';
+
+const WavesSection = dynamic(() => import('@/components/waves-section'), { ssr: false });
+const AboutGGT = dynamic(() => import('@/components/aboutggt'), { ssr: false });
+const WaveDiagram = dynamic(() => import('@/components/wave-diagram'), { ssr: false });
+const StartMovingFast = dynamic(() => import('@/components/start-moving-fast'), { ssr: false });
+const FAQSection = dynamic(() => import('@/components/faq-section'), { ssr: false });
+const ReviewsSection = dynamic(() => import('@/components/reviews-section'), { ssr: false });
+const GradientSection = dynamic(() => import('@/components/gradient-section'), { ssr: false });
+const NewsletterSection = dynamic(() => import('@/components/newslettersection'), { ssr: false });
 
 export default function Home() {
   return (
