@@ -18,7 +18,7 @@ const NewsletterSection = dynamic(() => import('@/components/newslettersection')
 export default function Home() {
   return (
     <div className="relative w-full min-h-screen">
-      <div className="relative w-full h-screen">
+      <div className="relative w-full">
         <Banner />
         <Heading />
       </div>

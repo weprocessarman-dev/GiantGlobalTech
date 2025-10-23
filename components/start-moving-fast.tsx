@@ -205,7 +205,7 @@ export default function StartMovingFast() {
       `}</style>
       
       <section className="w-full py-16">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1440px] mx-auto px-4">
           <div className="flex flex-col items-center">
             <h2 
               className={`${inter.className} font-bold text-center mb-6`}

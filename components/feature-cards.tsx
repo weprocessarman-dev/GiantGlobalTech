@@ -190,8 +190,8 @@ export default function FeatureCards() {
           transform: scale(1);
         }
       `}</style>
-      <div className="w-full" style={{ marginTop: '0px', marginBottom: '200px', paddingBottom: '100px' }}>
-      <div className="flex justify-center items-center" style={{ gap: '120px' }}>
+      <div className="w-full max-w-[1440px] mx-auto px-4" style={{marginBottom: '200px', paddingBottom: '100px' }}>
+      <div className="flex justify-center items-center flex-wrap" style={{ gap: '60px' }}>
         {cards.map((card) => (
           <div
             key={card.id}

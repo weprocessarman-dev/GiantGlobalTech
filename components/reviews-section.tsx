@@ -152,7 +152,7 @@ export default function ReviewsSection() {
 
   return (
     <section className="w-full py-16 md:py-20">
-      <div className="container mx-auto px-4">
+      <div className="max-w-[1440px] mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">
           <h2 

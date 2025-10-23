@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 export default function GradientSection() {
   return (
     <section className="w-full py-16 md:py-20">
-      <div className="container mx-auto px-4" style={{ marginTop: '80px' }}>
+      <div className="max-w-[1440px] mx-auto px-4" style={{ marginTop: '80px' }}>
         {/* Gradient Container */}
         <div 
           className="w-full relative"

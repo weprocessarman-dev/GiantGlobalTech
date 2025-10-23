@@ -260,7 +260,7 @@ export default function AboutGGT() {
         }
       `}</style>
       <section className="w-full py-16">
-        <div className="container mx-auto px-4">
+        <div className="max-w-[1440px] mx-auto px-4">
           <div className="flex justify-center">
             <div className="about-wrapper">
               <div className="about-container">

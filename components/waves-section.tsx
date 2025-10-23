@@ -8,15 +8,17 @@ export default function WavesSection() {
       className="w-full"
       style={{
         marginTop: '-300px',
-        backgroundRepeat: 'no-repeat, repeat',
-        backgroundImage: 'url("/Waves.gif")',
-        backgroundBlendMode: 'lighten',
-        backgroundSize: 'cover, cover',
-        backgroundPosition: 'center, center',
-        backgroundColor: '#000012'
+        backgroundColor: '#000012',
+        backgroundBlendMode: 'lighten'
       }}
     >
-      <div className="container mx-auto px-4">
+      <div className="max-w-[1440px] mx-auto px-4" style={{
+        backgroundRepeat: 'no-repeat',
+        backgroundImage: 'url("/Waves.gif")',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        mixBlendMode: 'lighten'
+      }}>
         <div className="flex justify-center items-center min-h-[400px]">
           {/* Content can be added here if needed */}
         </div>
