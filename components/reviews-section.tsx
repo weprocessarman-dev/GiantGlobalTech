@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -34,10 +35,10 @@ const reviewsData: Review[] = [
 ];
 
 export default function ReviewsSection() {
-  const [isHovered, setIsHovered] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const [cardWidth] = useState(600);
   const [cardGap] = useState(24);
-  const [animationDuration] = useState(30);
   
   // Calculate total width for one card including gap
   const cardTotalWidth = cardWidth + cardGap;
@@ -47,6 +48,13 @@ export default function ReviewsSection() {
   
   // Calculate animation distance (exactly 3 cards worth)
   const animationDistance = cardTotalWidth * reviewsData.length;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % reviewsData.length);
+    }, 10000);
+    return () => clearInterval(interval);
+  }, []);
 
   const cardStyle = {
     boxSizing: 'border-box' as const,
@@ -173,13 +181,20 @@ export default function ReviewsSection() {
 
         {/* Reviews Container */}
         <div className="w-full overflow-hidden">
-          <div 
+          <motion.div 
             className="flex"
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
+            drag="x"
+            dragConstraints={{ left: -animationDistance, right: 0 }}
+            dragElastic={0.2}
+            animate={{
+              x: isPaused ? -(activeIndex * cardTotalWidth) : -animationDistance,
+            }}
+            transition={{
+              duration: isPaused ? 0.5 : 10,
+              ease: isPaused ? "easeInOut" : "linear",
+              repeat: isPaused ? 0 : Infinity,
+            }}
             style={{
-              animation: `scroll ${animationDuration}s linear infinite`,
-              animationPlayState: isHovered ? 'paused' : 'running',
               width: `${containerWidth}px`,
             }}
           >
@@ -192,21 +207,34 @@ export default function ReviewsSection() {
             {reviewsData.map((review, index) => (
               <ReviewCard key={`duplicate-${index}`} review={review} keyPrefix="duplicate" />
             ))}
-          </div>
+          </motion.div>
+        </div>
+
+        {/* Dots Navigation */}
+        <div className="flex justify-center gap-3 mt-8">
+          {reviewsData.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                setActiveIndex(index);
+                setIsPaused(true);
+                setTimeout(() => setIsPaused(false), 5000);
+              }}
+              className="transition-all duration-300"
+              style={{
+                width: activeIndex === index ? '32px' : '12px',
+                height: '12px',
+                borderRadius: '6px',
+                background: activeIndex === index ? '#0D3DEE' : 'rgba(255, 255, 255, 0.3)',
+                border: 'none',
+                cursor: 'pointer'
+              }}
+            />
+          ))}
         </div>
       </div>
 
-      {/* Optimized CSS animation */}
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-${animationDistance}px);
-          }
-        }
-      `}</style>
+
     </section>
   );
 }

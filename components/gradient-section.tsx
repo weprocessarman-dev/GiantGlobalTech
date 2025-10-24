@@ -65,8 +65,8 @@ export default function GradientSection() {
                 className={`${inter.className} font-medium transition-all duration-300 ease-in-out hover:transform hover:scale-105`}
                 style={{
                   boxSizing: 'border-box',
-                  width: '213.59px',
-                  height: '55.63px',
+                  width: '200px',
+                  height: '50px',
                   background: '#000013',
                   borderRadius: '26px',
                   color: '#FFFFFF',

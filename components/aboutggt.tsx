@@ -120,10 +120,10 @@ export default function AboutGGT() {
         .card-span::after {
           content: '';
           position: absolute;
-          bottom: 0;
+          bottom: 33%;
           right: 0;
-          width: 100%;
-          height: 100%;
+          width: 100px;
+          height: 100px;
           border-radius: 20px;
           background: rgba(255, 255, 255, 0.1);
           backdrop-filter: blur(10px);
@@ -136,8 +136,8 @@ export default function AboutGGT() {
         }
 
         .about-container:hover .card-span::after {
-          bottom: -50px;
-          right: 50px;
+          bottom: -10%;
+          right: 250px;
           width: 100px;
           height: 100px;
           opacity: 1;
@@ -145,10 +145,10 @@ export default function AboutGGT() {
 
         .vector-in-animated-card {
           position: absolute;
-          bottom: 0;
+          bottom: 33%;
           right: 0;
-          width: 100%;
-          height: 100%;
+          width: 100px;
+          height: 100px;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -159,8 +159,8 @@ export default function AboutGGT() {
         }
 
         .about-container:hover .vector-in-animated-card {
-          bottom: -50px;
-          right: 50px;
+          bottom: -10%;
+          right: 250px;
           width: 100px;
           height: 100px;
           opacity: 1;

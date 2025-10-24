@@ -33,7 +33,7 @@ export default function Banner() {
       className="w-full banner-section"
       style={{
         position: 'relative',
-        height: '1025.08px',
+        height: 'min(1025.08px, 100vh)',
         background: '#050b24',
         backgroundImage: 'url(/background.svg)',
         backgroundSize: 'cover',
@@ -268,13 +268,13 @@ export default function Banner() {
       <h1
         className="absolute left-1/2 -translate-x-1/2 text-center font-bold heading-text"
         style={{
-          width: '876.11px',
-          height: '146.91px',
-          top: '210px',
+          width: '85%',
+          maxWidth: '876.11px',
+          top: '20.5%',
           fontFamily: 'Inter',
           fontWeight: 700,
-          fontSize: '55px',
-          lineHeight: '58px',
+          fontSize: 'clamp(32px, 5.4vw, 55px)',
+          lineHeight: '1.05',
           background: 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 50.49%, rgba(255, 255, 255, 0) 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
@@ -298,25 +298,7 @@ export default function Banner() {
         @keyframes spin {
           to { transform: rotate(360deg); }
         }
-        @media (max-height: 900px) {
-          .banner-section {
-            transform: scale(0.76);
-            transform-origin: top center;
-            height: 780px !important;
-          }
-          
-          .heading-text {
-            width: 667px !important;
-            height: 112px !important;
-            top: 160px !important;
-            font-size: 42px !important;
-            line-height: 44px !important;
-          }
-          
-          :global(.speak-button-wrapper) {
-            top: 665px !important;
-          }
-        }
+
         @keyframes horizontalGlow {
           0% {
             box-shadow: 
