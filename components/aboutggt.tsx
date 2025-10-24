@@ -19,7 +19,7 @@ export default function AboutGGT() {
           border-radius: 16px;
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
           backdrop-filter: blur(5px);
-          overflow: hidden;
+          overflow: visible;
           transition: all 0.5s ease-in-out;
           cursor: pointer;
         }
@@ -41,8 +41,8 @@ export default function AboutGGT() {
           z-index: 1;
         }
 
-        /* Top Right Glow */
-        .about-container::after {
+        /* Top Right Glow - moved to inner wrapper */
+        .glow-wrapper::after {
           content: '';
           position: absolute;
           top: -75.01px;
@@ -116,69 +116,57 @@ export default function AboutGGT() {
           opacity: 0;
         }
 
-        /* Bottom Right Small Card - span::after - Disabled */
+        /* Bottom Right Small Card - span::after */
         .card-span::after {
           content: '';
-          opacity: 0;
-          pointer-events: none;
-        }
-
-        .about-container:hover .card-span::after {
-          opacity: 0;
-        }
-
-        /* External Bottom Right Card - Updated */
-        .external-card {
-          position: absolute !important;
-          bottom: 50px !important;
-          right: 200px !important;
-          width: 150px;
-          height: 150px;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
           border-radius: 20px;
           background: rgba(255, 255, 255, 0.1);
           backdrop-filter: blur(10px);
           opacity: 0;
-          transition: all 0.3s ease-in-out;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+          transition: 0.5s;
+          animation: animate 2s ease-in-out infinite;
+          box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+          animation-delay: -1s;
           z-index: 30;
-          pointer-events: none;
-          transform: translateY(0);
         }
 
-        .about-wrapper:hover .external-card {
-          opacity: 1 !important;
-          transform: translateY(0);
+        .about-container:hover .card-span::after {
+          bottom: -50px;
+          right: 50px;
+          width: 100px;
+          height: 100px;
+          opacity: 1;
         }
 
-        /* Vector Travel Animation - Vector Disappears from Circle */
-        .main-vector {
-          transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .about-container:hover .main-vector {
-          opacity: 0;
-        }
-
-        /* Vector in Bottom Right Card - Updated */
-        .vector-in-card {
-          position: absolute !important;
-          bottom: 50px !important;
-          right: 200px !important;
-          width: 150px;
-          height: 150px;
+        .vector-in-animated-card {
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 100%;
+          height: 100%;
           display: flex;
           align-items: center;
           justify-content: center;
           opacity: 0;
-          transition: all 0.2s ease-in-out;
-          transition-delay: 0.3s;
-          z-index: 35;
-          transform: translateY(0);
+          transition: all 0.5s ease-in-out;
+          pointer-events: none;
+          z-index: 31;
         }
 
-        .about-wrapper:hover .vector-in-card {
+        .about-container:hover .vector-in-animated-card {
+          bottom: -50px;
+          right: 50px;
+          width: 100px;
+          height: 100px;
           opacity: 1;
         }
+
+
 
         /* Heading Stable Position */
         .about-heading {
@@ -290,6 +278,32 @@ export default function AboutGGT() {
           <div className="flex justify-center">
             <div className="about-wrapper">
               <div className="about-container">
+                <div className="glow-wrapper" style={{ position: 'absolute', inset: 0, overflow: 'hidden', borderRadius: '16px', pointerEvents: 'none' }}>
+                  {/* Top Right Circle */}
+                  <div className="top-right-circle" style={{
+                    position: 'absolute',
+                    top: '-75.01px',
+                    left: '745.87px',
+                    width: '342.68px',
+                    height: '342.68px',
+                    background: 'linear-gradient(270deg, #0D3DEE 0%, #A3B7FF 100%)',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 10
+                  }}>
+                    <Image
+                      src="/Vector 3.svg"
+                      alt="Vector decoration"
+                      width={120}
+                      height={120}
+                      className="object-contain filter brightness-0 invert"
+                      style={{ filter: 'brightness(0) invert(1)' }}
+                    />
+                  </div>
+                </div>
+
                 {/* About GGT Heading - Stable Position */}
                 <div className="about-heading">
                   <h2 
@@ -312,31 +326,18 @@ export default function AboutGGT() {
                 </div>
 
                 {/* Span Element for Card Animations */}
-                <span className="card-span"></span>
-
-                {/* Top Right Circle */}
-                <div className="top-right-circle" style={{
-                  position: 'absolute',
-                  top: '-75.01px',
-                  left: '745.87px',
-                  width: '342.68px',
-                  height: '342.68px',
-                  background: 'linear-gradient(270deg, #0D3DEE 0%, #A3B7FF 100%)',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  zIndex: 10
-                }}>
-                  <Image
-                    src="/Vector 3.svg"
-                    alt="Vector decoration"
-                    width={120}
-                    height={120}
-                    className="object-contain filter brightness-0 invert"
-                    style={{ filter: 'brightness(0) invert(1)' }}
-                  />
-                </div>
+                <span className="card-span">
+                  <div className="vector-in-animated-card">
+                    <Image
+                      src="/Vector 3.svg"
+                      alt="Vector decoration"
+                      width={50}
+                      height={50}
+                      className="object-contain filter brightness-0 invert"
+                      style={{ filter: 'brightness(0) invert(1)' }}
+                    />
+                  </div>
+                </span>
 
                 {/* Right Content - Text (Slides to Left Half) */}
                 <div className="right-content">
@@ -370,20 +371,7 @@ export default function AboutGGT() {
                 </div>
               </div>
 
-              {/* External Bottom Right Card */}
-              <div className="external-card"></div>
 
-              {/* Vector in Bottom Right Card */}
-              <div className="vector-in-card">
-                <Image
-                  src="/Vector 3.svg"
-                  alt="Vector decoration"
-                  width={70}
-                  height={70}
-                  className="object-contain filter brightness-0 invert"
-                  style={{ filter: 'brightness(0) invert(1)' }}
-                />
-              </div>
             </div>
           </div>
         </div>

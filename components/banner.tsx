@@ -33,9 +33,7 @@ export default function Banner() {
       className="w-full banner-section"
       style={{
         position: 'relative',
-        height: '100vh',
-        maxHeight: '1025.08px',
-        minHeight: '780px',
+        height: '1025.08px',
         background: '#050b24',
         backgroundImage: 'url(/background.svg)',
         backgroundSize: 'cover',
@@ -51,12 +49,12 @@ export default function Banner() {
           height: '600px',
           left: '50%',
           top: '50%',
-          transform: `translate(-50%, -50%) scale(${1 + volume * 0.6})`,
+          transform: `translate(-50%, -50%)`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           background: 'transparent',
-          transition: 'transform 0.2s ease-out'
+          pointerEvents: 'none'
         }}
       >
         {/* Left Line - Single horizontal line */}
@@ -68,10 +66,11 @@ export default function Banner() {
           xmlns="http://www.w3.org/2000/svg"
           style={{
             position: 'absolute',
-            left: '-80px',
+            left: '-125px',
             top: '60%',
             transform: 'translateY(-50%)',
-            zIndex: 3
+            zIndex: 3,
+            pointerEvents: 'none'
           }}
         >
           <path d="M200 5H0" stroke="#A3B7FF" strokeWidth="0.5" opacity="1"/>
@@ -98,7 +97,7 @@ export default function Banner() {
               <stop offset="1" stopColor="#0D3DEE"/>
             </linearGradient>
           </defs>
-        </svg>
+      </svg>
 
         {/* Right Lines - From SVG file */}
         <svg 
@@ -112,7 +111,8 @@ export default function Banner() {
             left: '600px',
             top: '60%',
             transform: 'translateY(-50%)',
-            zIndex: 1
+            zIndex: 1,
+            pointerEvents: 'none'
           }}
         >
           {/* Bottom branches */}
@@ -136,16 +136,31 @@ export default function Banner() {
               <stop offset="1" stopColor="#0D3DEE"/>
             </linearGradient>
           </defs>
-        
         </svg>
         
         {/* Text labels for right lines */}
-        <div style={{ position: 'absolute', left: '840px', top: '22.5%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500 }}>Food</div>
-        <div style={{ position: 'absolute', left: '815px', top: '38.5%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500 }}>Medical</div>
-        <div style={{ position: 'absolute', left: '790px', top: '59.5%', transform: 'translateY(-50%)', border: '1px solid #FFFFFF', borderRadius: '100px', padding: '10px 24px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 600, whiteSpace: 'nowrap' }}>Real Estate</div>
-        <div style={{ position: 'absolute', left: '815px', top: '75.8%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500 }}>Automotive</div>
-        <div style={{ position: 'absolute', left: '840px', top: '92%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500 }}>Tech</div>
+        <div style={{ position: 'absolute', left: '840px', top: '22.5%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Food</div>
+        <div style={{ position: 'absolute', left: '815px', top: '38.5%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Medical</div>
+        <div style={{ position: 'absolute', left: '790px', top: '59.5%', transform: 'translateY(-50%)', border: '1px solid #FFFFFF', borderRadius: '100px', padding: '10px 24px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 600, whiteSpace: 'nowrap', pointerEvents: 'none' }}>Real Estate</div>
+        <div style={{ position: 'absolute', left: '815px', top: '75.8%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Automotive</div>
+        <div style={{ position: 'absolute', left: '840px', top: '92%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Tech</div>
+      </div>
 
+      <div 
+        className="absolute"
+        style={{
+          width: '800px',
+          height: '600px',
+          left: '50%',
+          top: '50%',
+          transform: `translate(-50%, -50%) scale(${1 + volume * 0.3})`,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          background: 'transparent',
+          transition: 'transform 0.2s ease-out'
+        }}
+      >
         <div
           style={{
             position: 'relative',
@@ -158,25 +173,7 @@ export default function Banner() {
           }}
 
         >
-          {/* Voice Waves - Inside container */}
-          {waves.map((wave, i) => (
-            <div
-              key={i}
-              style={{
-                position: 'absolute',
-                width: `${70 + i * 10}%`,
-                height: `${70 + i * 10}%`,
-                left: '50%',
-                top: '50%',
-                transform: `translate(-50%, -50%) scale(${wave})`,
-                border: `2px solid rgba(0, 88, 255, ${0.6 - i * 0.2})`,
-                borderRadius: '50%',
-                transition: 'all 0.1s ease-out',
-                pointerEvents: 'none',
-                zIndex: 1
-              }}
-            />
-          ))}
+
           <Suspense fallback={
             <div style={{
               width: '100%',
@@ -303,8 +300,9 @@ export default function Banner() {
         }
         @media (max-height: 900px) {
           .banner-section {
-            height: 100vh !important;
-            max-height: 100vh !important;
+            transform: scale(0.76);
+            transform-origin: top center;
+            height: 780px !important;
           }
           
           .heading-text {
