@@ -33,7 +33,9 @@ export default function Banner() {
       className="w-full banner-section"
       style={{
         position: 'relative',
-        height: '1025.08px',
+        height: '100vh',
+        maxHeight: '1025.08px',
+        minHeight: '780px',
         background: '#050b24',
         backgroundImage: 'url(/background.svg)',
         backgroundSize: 'cover',
@@ -299,9 +301,10 @@ export default function Banner() {
         @keyframes spin {
           to { transform: rotate(360deg); }
         }
-        @media (max-width: 1441px) {
+        @media (max-height: 900px) {
           .banner-section {
-            height: 780px !important;
+            height: 100vh !important;
+            max-height: 100vh !important;
           }
           
           .heading-text {
