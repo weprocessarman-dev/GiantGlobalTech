@@ -41,21 +41,27 @@ export default function AboutGGT() {
           z-index: 1;
         }
 
-        /* Top Right Glow - Same Blue Color */
+        /* Top Right Glow */
         .about-container::after {
           content: '';
           position: absolute;
-          top: 0;
-          right: 0;
-          width: 80px;
-          height: 80px;
-          background: linear-gradient(315deg, #6366f1, #3b82f6);
+          top: -75.01px;
+          left: 745.87px;
+          width: 342.68px;
+          height: 342.68px;
+          background: linear-gradient(270deg, #0D3DEE 0%, #A3B7FF 100%);
           border-radius: 50%;
-          filter: blur(20px);
-          opacity: 0;
-          transform: translate(50%, -50%);
-          transition: all 0.5s ease-in-out;
+          filter: blur(80px);
+          opacity: 1;
           z-index: 1;
+        }
+
+        .top-right-circle {
+          transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .about-container:hover .top-right-circle {
+          opacity: 0;
         }
 
         /* Hover Effects for Glows */
@@ -64,69 +70,21 @@ export default function AboutGGT() {
           height: 0;
         }
 
-        .about-container:hover::after {
-          width: 350px;
-          height: 350px;
-          opacity: 0.8;
-          filter: blur(25px);
-        }
-
-        /* Content Animation - Right Content Slides to Left Half */
+        /* Content - Left Side */
         .right-content {
           position: absolute;
-          top: 0;
-          right: 0;
+          top: 50%;
+          left: 100px;
+          transform: translateY(-50%);
           width: 50%;
-          height: 100%;
           display: flex;
           align-items: center;
           justify-content: flex-start;
-          padding-left: 2rem;
           padding-right: 2rem;
-          transition: all 0.5s ease-in-out;
           z-index: 5;
         }
 
-        .about-container:hover .right-content {
-          transform: translateX(-86%);
-          width: 50%;
-        }
 
-        /* Left Content - Position in Bottom Left */
-        .left-content {
-          position: absolute;
-          bottom: 80px;
-          left: 100px;
-          width: 350px;
-          height: 350px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transform: translate(-50%, 50%);
-          z-index: 5;
-        }
-
-        /* Blue Circle with Expanding Glow */
-        .blue-circle {
-          transition: none;
-          filter: drop-shadow(0 0 30px rgba(99, 102, 241, 0.8)) drop-shadow(0 0 50px rgba(59, 130, 246, 0.6));
-          box-shadow: 
-            0 0 40px rgba(99, 102, 241, 0.7), 
-            0 0 80px rgba(99, 102, 241, 0.5), 
-            0 0 120px rgba(99, 102, 241, 0.3),
-            0 0 160px rgba(59, 130, 246, 0.2);
-        }
-
-        .about-container:hover .blue-circle {
-          filter: blur(8px) drop-shadow(0 0 60px rgba(99, 102, 241, 1)) drop-shadow(0 0 80px rgba(59, 130, 246, 0.9));
-          box-shadow: 
-            0 0 80px rgba(99, 102, 241, 1), 
-            0 0 150px rgba(99, 102, 241, 0.8), 
-            0 0 220px rgba(99, 102, 241, 0.6),
-            0 0 290px rgba(59, 130, 246, 0.4);
-          background: radial-gradient(circle, rgba(99, 102, 241, 1) 0%, rgba(59, 130, 246, 0.95) 20%, rgba(29, 78, 216, 0.85) 40%, rgba(99, 102, 241, 0.6) 70%, rgba(59, 130, 246, 0.3) 85%, rgba(99, 102, 241, 0.1) 95%, transparent 100%) !important;
-          transform: scale(1.015);
-        }
 
         /* Span Element for Card Animation */
         .card-span {
@@ -258,6 +216,74 @@ export default function AboutGGT() {
         .about-text {
           font-family: ${inter.style.fontFamily}, Arial, sans-serif;
         }
+
+        @media (max-width: 1441px) {
+          .about-container {
+            width: 792px !important;
+            height: 366px !important;
+            margin-bottom: 76px !important;
+          }
+
+          .about-heading {
+            left: 38px !important;
+            top: 34px !important;
+          }
+
+          .about-heading h2 {
+            font-size: 38px !important;
+            margin-left: 38px !important;
+            margin-bottom: 12px !important;
+          }
+
+          .about-container::after {
+            top: -57px !important;
+            left: 567px !important;
+            width: 260px !important;
+            height: 260px !important;
+            filter: blur(60px) !important;
+          }
+
+          .top-right-circle {
+            top: -57px !important;
+            left: 567px !important;
+            width: 260px !important;
+            height: 260px !important;
+          }
+
+          .top-right-circle img {
+            width: 91px !important;
+            height: 91px !important;
+          }
+
+          .right-content {
+            left: 76px !important;
+          }
+
+          .about-text {
+            font-size: 12px !important;
+            line-height: 1.5 !important;
+            margin-bottom: 18px !important;
+          }
+
+          .external-card {
+            bottom: 38px !important;
+            right: 152px !important;
+            width: 114px !important;
+            height: 114px !important;
+          }
+
+          .vector-in-card {
+            bottom: 38px !important;
+            right: 152px !important;
+            width: 114px !important;
+            height: 114px !important;
+          }
+
+          .vector-in-card img {
+            width: 53px !important;
+            height: 53px !important;
+          }
+        }
       `}</style>
       <section className="w-full py-16">
         <div className="max-w-[1440px] mx-auto px-4">
@@ -288,31 +314,28 @@ export default function AboutGGT() {
                 {/* Span Element for Card Animations */}
                 <span className="card-span"></span>
 
-                {/* Left Content - Blue Circle in Bottom Left */}
-                <div className="left-content">
-                  <div 
-                    className="relative flex items-center justify-center blue-circle"
-                    style={{
-                      width: '350px',
-                      height: '350px',
-                      background: 'linear-gradient(135deg, #6366f1 0%, #3b82f6 50%, #1d4ed8 100%)',
-                      borderRadius: '50%',
-                      boxShadow: '0 0 60px rgba(99, 102, 241, 0.8), 0 0 120px rgba(99, 102, 241, 0.6), 0 0 180px rgba(99, 102, 241, 0.4), 0 0 240px rgba(59, 130, 246, 0.3)',
-                      filter: 'drop-shadow(0 0 40px rgba(99, 102, 241, 0.9)) drop-shadow(0 0 60px rgba(59, 130, 246, 0.7))'
-                    }}
-                  >
-                    {/* Main Vector - Travels to Small Card */}
-                    <div className="relative main-vector">
-                      <Image
-                        src="/Vector 3.svg"
-                        alt="Vector decoration"
-                        width={120}
-                        height={120}
-                        className="object-contain filter brightness-0 invert"
-                        style={{ filter: 'brightness(0) invert(1)' }}
-                      />
-                    </div>
-                  </div>
+                {/* Top Right Circle */}
+                <div className="top-right-circle" style={{
+                  position: 'absolute',
+                  top: '-75.01px',
+                  left: '745.87px',
+                  width: '342.68px',
+                  height: '342.68px',
+                  background: 'linear-gradient(270deg, #0D3DEE 0%, #A3B7FF 100%)',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  zIndex: 10
+                }}>
+                  <Image
+                    src="/Vector 3.svg"
+                    alt="Vector decoration"
+                    width={120}
+                    height={120}
+                    className="object-contain filter brightness-0 invert"
+                    style={{ filter: 'brightness(0) invert(1)' }}
+                  />
                 </div>
 
                 {/* Right Content - Text (Slides to Left Half) */}

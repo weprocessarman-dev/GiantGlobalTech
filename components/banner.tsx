@@ -33,7 +33,8 @@ export default function Banner() {
       className="w-full banner-section"
       style={{
         position: 'relative',
-        height: '1025.08px',
+        height: '100vh',
+        minHeight: '780px',
         background: '#050b24',
         backgroundImage: 'url(/background.svg)',
         backgroundSize: 'cover',
@@ -303,11 +304,7 @@ export default function Banner() {
             filter: brightness(1.8);
           }
         }
-        @media (max-width: 1440px) {
-          .banner-section {
-            height: 780px !important;
-          }
-        }
+
       `}</style>
     </section>
   );
