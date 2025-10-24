@@ -33,8 +33,7 @@ export default function Banner() {
       className="w-full banner-section"
       style={{
         position: 'relative',
-        height: '100vh',
-        minHeight: '780px',
+        height: '1025.08px',
         background: '#050b24',
         backgroundImage: 'url(/background.svg)',
         backgroundSize: 'cover',
@@ -266,6 +265,28 @@ export default function Banner() {
         }}
       />
       
+      {/* Heading */}
+      <h1
+        className="absolute left-1/2 -translate-x-1/2 text-center font-bold heading-text"
+        style={{
+          width: '876.11px',
+          height: '146.91px',
+          top: '210px',
+          fontFamily: 'Inter',
+          fontWeight: 700,
+          fontSize: '55px',
+          lineHeight: '58px',
+          background: 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 50.49%, rgba(255, 255, 255, 0) 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          backgroundClip: 'text',
+        }}
+      >
+        Choose Voice Agent Support
+        <br />
+        For Your Business
+      </h1>
+
       <SpeakButton 
         onVoiceStart={(active, vol) => {
           setIsVoiceActive(active);
@@ -277,6 +298,23 @@ export default function Banner() {
       <style jsx>{`
         @keyframes spin {
           to { transform: rotate(360deg); }
+        }
+        @media (max-width: 1441px) {
+          .banner-section {
+            height: 780px !important;
+          }
+          
+          .heading-text {
+            width: 667px !important;
+            height: 112px !important;
+            top: 160px !important;
+            font-size: 42px !important;
+            line-height: 44px !important;
+          }
+          
+          :global(.speak-button-wrapper) {
+            top: 665px !important;
+          }
         }
         @keyframes horizontalGlow {
           0% {

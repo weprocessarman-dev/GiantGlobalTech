@@ -2,7 +2,6 @@
 
 import dynamic from 'next/dynamic';
 import Banner from '@/components/banner';
-import Heading from '@/components/heading';
 import ConnectionLines from '@/components/connection-lines';
 import FeatureCards from '@/components/feature-cards';
 
@@ -20,7 +19,6 @@ export default function Home() {
     <div className="relative w-full min-h-screen">
       <div className="relative w-full">
         <Banner />
-        <Heading />
       </div>
       <ConnectionLines />
       <FeatureCards />
