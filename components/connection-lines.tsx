@@ -60,7 +60,13 @@ export default function ConnectionLines() {
             preserveAspectRatio="xMidYMid meet"
             style={{ display: 'block' }}
           >
-        {/* Main vertical line */}
+        {/* Main vertical line - fixed */}
+        <path 
+          d="M600 0V250" 
+          stroke="url(#paint0_linear_107_218)"
+          strokeWidth="0.8"
+          opacity="0.6"
+        />
         <motion.path 
           d="M600 0V250" 
           stroke="url(#paint0_linear_107_218)"
@@ -71,9 +77,13 @@ export default function ConnectionLines() {
           }}
         />
         
-
-        
-        {/* Right branch */}
+        {/* Right branch - fixed */}
+        <path 
+          d="M650 0V180Q650 200 670 200H1080Q1100 200 1100 220V250" 
+          stroke="url(#paint0_linear_107_218)"
+          strokeWidth="0.8"
+          opacity="0.6"
+        />
         <motion.path 
           d="M650 0V180Q650 200 670 200H1080Q1100 200 1100 220V250" 
           stroke="url(#paint0_linear_107_218)"
@@ -84,9 +94,13 @@ export default function ConnectionLines() {
           }}
         />
         
-
-        
-        {/* Left branch */}
+        {/* Left branch - fixed */}
+        <path 
+          d="M550 0V180Q550 200 530 200H120Q100 200 100 220V250" 
+          stroke="url(#paint0_linear_107_218)"
+          strokeWidth="0.8"
+          opacity="0.6"
+        />
         <motion.path 
           d="M550 0V180Q550 200 530 200H120Q100 200 100 220V250" 
           stroke="url(#paint0_linear_107_218)"
