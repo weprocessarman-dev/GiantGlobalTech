@@ -15,7 +15,7 @@ export default function ConnectionLines() {
   const branchLineOffset = useTransform(scrollYProgress, [0, 1], [1000, 0]);
 
   return (
-    <section className="w-full" style={{ padding: 'auto 0', position: 'relative', minHeight: '300px', marginTop: 'auto 0', marginBottom: '0' }}>
+    <section className="w-full connection-lines-section" style={{ padding: 'auto 0', position: 'relative', marginTop: 'auto 0', marginBottom: '50px' }}>
       <div className="max-w-[1440px] mx-auto px-4">
       <style jsx>{`
         @keyframes flowGlow {
@@ -32,6 +32,25 @@ export default function ConnectionLines() {
           100% { stroke-dashoffset: 0; opacity: 0; }  
         }
 
+        .connection-lines-section {
+          min-height: 300px;
+          margin-bottom: 50px;
+        }
+
+        @media (max-width: 1441px) {
+          .connection-lines-section {
+            min-height: 228px !important;
+          }
+          
+          .connection-lines-container {
+            height: 190px !important;
+          }
+          
+          .connection-lines-svg {
+            height: 228px !important;
+          }
+        }
+
         @media (max-width: 768px) {
           section {
             padding: 30px 0 !important;
@@ -42,7 +61,8 @@ export default function ConnectionLines() {
       `}</style>
       <div className="container mx-auto px-4">
         <div 
-          ref={containerRef} 
+          ref={containerRef}
+          className="connection-lines-container" 
           style={{
             width: '100%',
             height: '250px',
@@ -53,7 +73,8 @@ export default function ConnectionLines() {
         >
           <svg 
             width="100%" 
-            height="300" 
+            height="300"
+            className="connection-lines-svg" 
             viewBox="0 0 1200 300" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg" 

@@ -110,7 +110,7 @@ export default function SpeakButton({ onVoiceStart }: SpeakButtonProps) {
 
   return (
     <div 
-      className="absolute w-[131.62px] h-[45.29px] left-1/2 -translate-x-1/2"
+      className="absolute w-[131.62px] h-[45.29px] left-1/2 -translate-x-1/2 speak-button-wrapper"
       style={{ top: '874.36px', zIndex: 10 }}
     >
       <div 
@@ -153,6 +153,13 @@ export default function SpeakButton({ onVoiceStart }: SpeakButtonProps) {
           setShouldEndCall(false);
         }}
       />
+      <style jsx>{`
+        @media (max-width: 1440px) {
+          .speak-button-wrapper {
+            top: 665px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }

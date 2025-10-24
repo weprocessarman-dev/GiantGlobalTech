@@ -189,9 +189,51 @@ export default function FeatureCards() {
           opacity: 1;
           transform: scale(1);
         }
+
+        @media (max-width: 1440px) {
+          .card-container {
+            width: 284px !important;
+            height: 220px !important;
+            margin: 0 22px !important;
+          }
+          
+          .card-content {
+            padding: 15px 30px !important;
+          }
+          
+          .card-container:hover .card-content {
+            padding: 30px 22px !important;
+          }
+          
+          .card-content h3 {
+            font-size: 38px !important;
+            margin-bottom: 12px !important;
+          }
+          
+          .card-content p {
+            font-size: 12px !important;
+            padding: 9px 12px !important;
+          }
+          
+          .small-card-logo {
+            width: 38px !important;
+            height: 38px !important;
+            bottom: -19px !important;
+            right: 57px !important;
+          }
+          
+          .feature-cards-wrapper {
+            margin-bottom: 152px !important;
+            padding-bottom: 76px !important;
+          }
+          
+          .cards-flex {
+            gap: 45px !important;
+          }
+        }
       `}</style>
-      <div className="w-full max-w-[1440px] mx-auto px-4" style={{marginBottom: '200px', paddingBottom: '100px' }}>
-      <div className="flex justify-center items-center flex-wrap" style={{ gap: '60px' }}>
+      <div className="w-full max-w-[1440px] mx-auto px-4 feature-cards-wrapper" style={{marginBottom: '200px', paddingBottom: '100px' }}>
+      <div className="flex justify-center items-center flex-wrap cards-flex" style={{ gap: '60px' }}>
         {cards.map((card) => (
           <div
             key={card.id}

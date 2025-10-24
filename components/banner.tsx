@@ -30,7 +30,7 @@ export default function Banner() {
 
   return (
     <section 
-      className="w-full"
+      className="w-full banner-section"
       style={{
         position: 'relative',
         height: '1025.08px',
@@ -72,7 +72,7 @@ export default function Banner() {
             zIndex: 3
           }}
         >
-          <path d="M200 5H0" stroke="#A3B7FF" strokeWidth="0.25" opacity="0.3"/>
+          <path d="M200 5H0" stroke="#A3B7FF" strokeWidth="0.5" opacity="1"/>
           <motion.path 
             d="M200 5H0" 
             stroke="#0D3DEE"
@@ -301,6 +301,11 @@ export default function Banner() {
               0 -50px 75px rgba(13, 61, 238, 0.3),
               0 50px 75px rgba(13, 61, 238, 0.3);
             filter: brightness(1.8);
+          }
+        }
+        @media (max-width: 1440px) {
+          .banner-section {
+            height: 780px !important;
           }
         }
       `}</style>
