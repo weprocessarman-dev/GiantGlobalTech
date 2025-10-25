@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ['latin'] });
 export default function BackgroundSection() {
   return (
     <section className="w-full py-16 md:py-20">
-      <div className="max-w-[1440px] mx-auto px-4" style={{ marginTop: '80px', marginBottom: '80px' }}>
+      <div className="w-full mx-auto px-4" style={{ marginTop: '80px', marginBottom: '80px' }}>
         {/* Background Container */}
         <div 
           className="w-full relative"

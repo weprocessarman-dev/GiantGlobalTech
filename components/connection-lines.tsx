@@ -15,57 +15,13 @@ export default function ConnectionLines() {
   const branchLineOffset = useTransform(scrollYProgress, [0, 1], [1000, 0]);
 
   return (
-    <section className="w-full connection-lines-section" style={{ padding: 'auto 0', position: 'relative', marginTop: 'auto 0', marginBottom: '50px' }}>
-      <div className="max-w-[1440px] mx-auto px-4">
-      <style jsx>{`
-        @keyframes flowGlow {
-          0% { stroke-dashoffset: 200; opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { stroke-dashoffset: 0; opacity: 0; }
-        }
-        
-        @keyframes flowGlowBranch {
-          0% { stroke-dashoffset: 520; opacity: 0; }
-          10% { opacity: 1; }
-          90% { opacity: 1; }
-          100% { stroke-dashoffset: 0; opacity: 0; }  
-        }
-
-        .connection-lines-section {
-          min-height: 300px;
-          margin-bottom: 50px;
-        }
-
-        @media (max-width: 1441px) {
-          .connection-lines-section {
-            min-height: 228px !important;
-          }
-          
-          .connection-lines-container {
-            height: 190px !important;
-          }
-          
-          .connection-lines-svg {
-            height: 228px !important;
-          }
-        }
-
-        @media (max-width: 768px) {
-          section {
-            padding: 30px 0 !important;
-            min-height: 250px !important;
-            margin-top: 50px !important;
-          }
-        }
-      `}</style>
-      <div className="container mx-auto px-4">
+    <section className="w-full connection-lines-section" style={{ height: '300px', position: 'relative', marginBottom: '50px' }}>
+      <div className="max-w-[1440px] mx-auto px-4" style={{ height: '100%' }}>
         <div 
           ref={containerRef}
-          className="connection-lines-container" 
           style={{
             width: '100%',
-            height: '250px',
+            height: '100%',
             margin: '0 auto',
             position: 'relative',
             overflow: 'visible'
@@ -152,7 +108,20 @@ export default function ConnectionLines() {
           </svg>
         </div>
       </div>
-      </div>
+      
+      <style jsx>{`
+        @media (max-width: 768px) {
+          .connection-lines-section {
+            height: 200px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .connection-lines-section {
+            height: 150px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

@@ -11,27 +11,27 @@ export default function StartNowSection() {
       className="w-full" 
       style={{
         marginTop: '80px',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        position: 'relative',
-        minHeight: '200px',
       }}
     >
-      <div
-        style={{
-          position: 'absolute',
-          width: '1040px',
-          height: '169.33px',
-          borderRadius: '15px',
-          overflow: 'visible',
-          backgroundImage: 'url(/startnowrectangle.png)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 60px',
-        }}
-      >
+      <div className="container mx-auto px-4" style={{ maxWidth: '1440px' }}>
+        <div
+          style={{
+            position: 'relative',
+            width: '100%',
+            maxWidth: '1040px',
+            height: '169.33px',
+            margin: '0 auto',
+            borderRadius: '15px',
+            overflow: 'visible',
+            backgroundImage: 'url(/startnowrectangle.png)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            padding: '0 60px',
+          }}
+        >
         {/* Left Side - Stats Content */}
         <div 
           style={{
@@ -147,6 +147,7 @@ export default function StartNowSection() {
             }}
           />
         </div>
+        </div>
       </div>
 
       {/* Floating Animation for Gear */}
@@ -170,7 +171,7 @@ export default function StartNowSection() {
         }
         
         @media (max-width: 1024px) {
-          section > div {
+          section > div > div {
             width: 90% !important;
             height: auto !important;
             padding: 40px 30px !important;

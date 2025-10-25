@@ -32,14 +32,10 @@ export default function GradientActionSection() {
               <h2 
                 className={`${inter.className} font-bold mb-4`}
                 style={{
-                  width: '719.45px',
-                  height: '55.66px',
-                  fontFamily: 'Inter',
-                  fontStyle: 'normal',
                   fontWeight: 700,
                   fontSize: '50px',
                   lineHeight: '55px',
-                  textAlign: 'center' as const,
+                  textAlign: 'center',
                   background: 'linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, #FFFFFF 50.49%, rgba(0, 0, 0, 0.2) 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',

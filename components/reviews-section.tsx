@@ -74,7 +74,7 @@ export default function ReviewsSection() {
     marginBottom: '40px'
   };
 
-  const ReviewCard = ({ review, keyPrefix = '' }: { review: Review; keyPrefix?: string }) => (
+  const ReviewCard = ({ review }: { review: Review }) => (
     <div
       className="flex-shrink-0 transition-all duration-300 ease-in-out hover:transform hover:scale-105"
       style={{...cardStyle, transformOrigin: 'bottom center'}}
@@ -121,7 +121,6 @@ export default function ReviewsSection() {
               backgroundColor: 'rgba(255, 255, 255, 0.1)',
             }}
             onError={(e) => {
-              console.log('Avatar failed to load: /avatar.png');
               (e.target as HTMLDivElement).style.backgroundImage = 'none';
               (e.target as HTMLDivElement).innerHTML = review.name.charAt(0);
             }}
@@ -160,7 +159,7 @@ export default function ReviewsSection() {
 
   return (
     <section className="w-full py-16 md:py-20">
-      <div className="max-w-[1440px] mx-auto px-4">
+      <div className="w-full mx-auto px-4">
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">
           <h2 
@@ -198,14 +197,8 @@ export default function ReviewsSection() {
               width: `${containerWidth}px`,
             }}
           >
-            {/* Original cards */}
-            {reviewsData.map((review, index) => (
+            {[...reviewsData, ...reviewsData].map((review, index) => (
               <ReviewCard key={index} review={review} />
-            ))}
-            
-            {/* Duplicate cards for seamless loop */}
-            {reviewsData.map((review, index) => (
-              <ReviewCard key={`duplicate-${index}`} review={review} keyPrefix="duplicate" />
             ))}
           </motion.div>
         </div>
@@ -225,7 +218,7 @@ export default function ReviewsSection() {
                 width: activeIndex === index ? '32px' : '12px',
                 height: '12px',
                 borderRadius: '6px',
-                background: activeIndex === index ? '#0D3DEE' : 'rgba(255, 255, 255, 0.3)',
+                background: activeIndex === index ? '#FFFFFF' : 'rgba(255, 255, 255, 0.3)',
                 border: 'none',
                 cursor: 'pointer'
               }}

@@ -190,45 +190,44 @@ export default function FeatureCards() {
           transform: scale(1);
         }
 
-        @media (max-width: 1440px) {
+        @media (max-width: 768px) {
           .card-container {
-            width: 284px !important;
-            height: 220px !important;
-            margin: 0 22px !important;
-          }
-          
-          .card-content {
-            padding: 15px 30px !important;
-          }
-          
-          .card-container:hover .card-content {
-            padding: 30px 22px !important;
+            width: 90% !important;
+            height: 250px !important;
+            margin: 0 auto 30px !important;
           }
           
           .card-content h3 {
-            font-size: 38px !important;
-            margin-bottom: 12px !important;
+            font-size: 40px !important;
+          }
+          
+          .card-content p {
+            font-size: 14px !important;
+          }
+          
+          .feature-cards-wrapper {
+            margin-bottom: 100px !important;
+            padding-bottom: 50px !important;
+          }
+          
+          .cards-flex {
+            flex-direction: column !important;
+            gap: 30px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .card-container {
+            height: 220px !important;
+          }
+          
+          .card-content h3 {
+            font-size: 32px !important;
           }
           
           .card-content p {
             font-size: 12px !important;
-            padding: 9px 12px !important;
-          }
-          
-          .small-card-logo {
-            width: 38px !important;
-            height: 38px !important;
-            bottom: -19px !important;
-            right: 57px !important;
-          }
-          
-          .feature-cards-wrapper {
-            margin-bottom: 152px !important;
-            padding-bottom: 76px !important;
-          }
-          
-          .cards-flex {
-            gap: 45px !important;
+            padding: 8px 12px !important;
           }
         }
       `}</style>

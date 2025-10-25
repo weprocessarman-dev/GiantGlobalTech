@@ -31,12 +31,6 @@ export default function AboutBanner() {
           src="/blackhole.gif" 
           alt="Black Hole Animation"
           className="w-full h-full object-cover"
-          style={{
-            width: '100%',
-            height: '100%',
-            objectFit: 'cover',
-            objectPosition: 'center',
-          }}
         />
         
         {/* Overlay for better text readability */}
@@ -60,8 +54,11 @@ export default function AboutBanner() {
         <div 
           className="relative rectangle-container"
           style={{
+            position: 'absolute',
+            top: '74%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
             width: '1040px',
-            height: 'content-height',
             maxWidth: '95%',
             background: 'rgba(135, 135, 135, 0.2)',
             borderRadius: '20px',
@@ -75,9 +72,6 @@ export default function AboutBanner() {
             justifyContent: 'center',
             alignItems: 'center',
             textAlign: 'center',
-            marginTop: '112vh',
-            marginBottom: '50px',
-            transform: 'translateY(-50%)',
           }}
         >
           {/* Heading */}
@@ -131,6 +125,12 @@ export default function AboutBanner() {
 
       {/* Mobile Responsive Styles */}
       <style jsx>{`
+        @media (max-width: 1440px) {
+          .rectangle-container {
+            top: 70% !important;
+          }
+        }
+        
         @media (max-width: 768px) {
           .banner-container {
             height: 70vh;
@@ -138,10 +138,9 @@ export default function AboutBanner() {
           }
           
           .rectangle-container {
+            top: 75% !important;
             width: 90% !important;
-            height: auto !important;
             padding: 30px 30px !important;
-            margin-top: 100vh !important;
             font-size: 14px !important;
           }
           
@@ -167,9 +166,7 @@ export default function AboutBanner() {
           
           .rectangle-container {
             width: 95% !important;
-            height: auto !important;
             padding: 20px 20px !important;
-            margin-top: 280vh !important;
           }
           
           .rectangle-heading {
@@ -193,8 +190,6 @@ export default function AboutBanner() {
           }
           
           .rectangle-container {
-            margin-top: 40vh !important;
-            height: auto !important;
             padding: 20px 40px !important;
           }
           

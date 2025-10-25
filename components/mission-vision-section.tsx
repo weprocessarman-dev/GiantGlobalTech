@@ -10,29 +10,23 @@ export default function MissionVisionSection() {
       className="w-full" 
       style={{
         width: '100%',
-        minHeight: '100vh',
+        height: '1200px',
         padding: '80px 0',
         margin: '80px 0 0 0',
         overflow: 'hidden',
       }}
     >
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4" style={{ maxWidth: '1440px', height: '100%', position: 'relative' }}>
+        {/* Grid Container - 2x2 */}
         <div 
+          className="grid grid-cols-2 gap-16 mx-auto items-center"
           style={{
-            width: '80%',
-            margin: '0 auto',
+            height: '100%',
           }}
         >
-          {/* Grid Container - 2x2 */}
-          <div 
-            className="grid grid-cols-2 gap-16 max-w-7xl mx-auto items-center"
-            style={{
-              minHeight: '80vh',
-            }}
-          >
           {/* First Row - Left: Mission Content */}
           <div 
-            className="flex flex-col justify-center mission-content-glow"
+            className="flex flex-col justify-center"
             style={{
               paddingLeft: '120px',
               paddingRight: '120px',
@@ -123,7 +117,7 @@ export default function MissionVisionSection() {
 
           {/* Second Row - Right: Vision Content */}
           <div 
-            className="flex flex-col justify-center vision-content-glow"
+            className="flex flex-col justify-center"
             style={{
               paddingLeft: '120px',
               paddingRight: '120px',
@@ -158,8 +152,11 @@ export default function MissionVisionSection() {
               Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
             </p>
           </div>
-          </div>
         </div>
+        
+        {/* Glow Effects - Fixed to Body Edges */}
+        <div className="mission-glow" />
+        <div className="vision-glow" />
       </div>
 
       {/* Floating Animations & Mobile Responsive Styles */}
@@ -200,13 +197,12 @@ export default function MissionVisionSection() {
           animation-delay: -2s;
         }
 
-        .mission-content-glow::before {
-          content: '';
-          position: absolute;
+        .mission-glow {
+          position: fixed;
           width: 481.14px;
           height: 481.14px;
-          left: -550px;
-          top: -100px;
+          left: -240px;
+          top: 300px;
           opacity: 0.25;
           background: radial-gradient(circle, 
             #0D3DEE 100%, 
@@ -216,15 +212,15 @@ export default function MissionVisionSection() {
           border-radius: 50%;
           z-index: -1;
           filter: blur(40px);
+          pointer-events: none;
         }
 
-        .vision-content-glow::before {
-          content: '';
-          position: absolute;
+        .vision-glow {
+          position: fixed;
           width: 481.14px;
           height: 481.14px;
-          right: -550px;
-          top: -100px;
+          right: -240px;
+          top: 800px;
           opacity: 0.25;
           background: radial-gradient(circle, 
             #0D3DEE 100%, 
@@ -234,6 +230,7 @@ export default function MissionVisionSection() {
           border-radius: 50%;
           z-index: -1;
           filter: blur(40px);
+          pointer-events: none;
         }
 
         @media (max-width: 1024px) {
@@ -266,8 +263,8 @@ export default function MissionVisionSection() {
             margin: 0 auto !important;
           }
           
-          .mission-content-glow::before,
-          .vision-content-glow::before {
+          .mission-glow,
+          .vision-glow {
             display: none !important;
           }
         }

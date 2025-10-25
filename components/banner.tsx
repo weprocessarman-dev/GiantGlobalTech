@@ -33,7 +33,7 @@ export default function Banner() {
       className="w-full banner-section"
       style={{
         position: 'relative',
-        height: 'min(1025.08px, 100vh)',
+        height: '1025.08px',
         background: '#050b24',
         backgroundImage: 'url(/background.svg)',
         backgroundSize: 'cover',
@@ -270,10 +270,10 @@ export default function Banner() {
         style={{
           width: '85%',
           maxWidth: '876.11px',
-          top: '20.5%',
+          top: '210px',
           fontFamily: 'Inter',
           fontWeight: 700,
-          fontSize: 'clamp(32px, 5.4vw, 55px)',
+          fontSize: '55px',
           lineHeight: '1.05',
           background: 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 50.49%, rgba(255, 255, 255, 0) 100%)',
           WebkitBackgroundClip: 'text',

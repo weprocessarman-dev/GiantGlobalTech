@@ -7,35 +7,13 @@ export default function DesignBanner() {
   return (
     <div style={{ width: '100%', position: 'relative', background: 'transparent', overflow: 'visible', maxWidth: '100%' }}>
       <style jsx>{`
-        @media (max-width: 768px) {
-          .banner-section {
-            height: 600px !important;
-          }
-          .banner-title {
-            font-size: 60px !important;
-            line-height: 60px !important;
-            width: 90% !important;
-            height: auto !important;
-            top: 300px !important;
-          }
-          .banner-text {
-            font-size: 14px !important;
-            line-height: 18px !important;
-            width: 85% !important;
-            height: auto !important;
-            top: 380px !important;
-          }
-          .flare-image {
-            width: 80% !important;
-            height: auto !important;
-          }
-        }
+
       `}</style>
       <section
         className="banner-section"
         style={{
           width: '100%',
-          height: '890px',
+          height: 'min(890px, 100vh)',
           overflow: 'visible',
           position: 'relative',
           zIndex: 0,
@@ -65,16 +43,16 @@ export default function DesignBanner() {
             className="banner-title"
             style={{
               position: 'absolute',
-              width: 758.71,
-              height: 148.74,
+              width: '85%',
+              maxWidth: '758.71px',
               left: '50%',
-              top: 400.12,
+              top: '45%',
               transform: 'translateX(-50%)',
               fontFamily: 'Inter',
               fontStyle: 'normal',
               fontWeight: 700,
-              fontSize: 150,
-              lineHeight: '150px',
+              fontSize: 'clamp(60px, 16.8vw, 150px)',
+              lineHeight: '1',
               textAlign: 'center',
               background: 'linear-gradient(90deg, rgba(255,255,255,0.2) 0%, #FFFFFF 50.49%, rgba(255,255,255,0.2) 100%)',
               WebkitBackgroundClip: 'text',
@@ -92,16 +70,16 @@ export default function DesignBanner() {
             className="banner-text"
             style={{
               position: 'absolute',
-              width: 652.46,
-              height: 50.47,
+              width: '85%',
+              maxWidth: '652.46px',
               left: '50%',
-              top: 550.3,
+              top: '62%',
               transform: 'translateX(-50%)',
               fontFamily: 'Inter',
               fontStyle: 'normal',
               fontWeight: 400,
-              fontSize: 18,
-              lineHeight: '22px',
+              fontSize: 'clamp(14px, 2vw, 18px)',
+              lineHeight: '1.4',
               textAlign: 'center',
               color: '#FFFFFF',
               margin: 0,
@@ -130,6 +108,7 @@ export default function DesignBanner() {
           height: 'auto',
           zIndex: 10,
           pointerEvents: 'none',
+          mixBlendMode: 'lighten',
         }}
       />
     </div>

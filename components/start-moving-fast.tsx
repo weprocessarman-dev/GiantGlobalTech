@@ -202,6 +202,39 @@ export default function StartMovingFast() {
           font-weight: 400;
           font-family: 'Inter', sans-serif;
         }
+        
+        @media (max-width: 768px) {
+          .pricing-container {
+            margin: 0 20px;
+          }
+          
+          .pricing-card {
+            width: 100%;
+            max-width: 350px;
+          }
+          
+          .small-card {
+            display: none;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .pricing-card {
+            padding: 30px 24px;
+          }
+          
+          .plan-title {
+            font-size: 20px;
+          }
+          
+          .price {
+            font-size: 40px;
+          }
+          
+          .plan-description {
+            font-size: 14px;
+          }
+        }
       `}</style>
       
       <section className="w-full py-16">
