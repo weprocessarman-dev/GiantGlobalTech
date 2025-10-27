@@ -33,7 +33,7 @@ export default function Banner() {
       className="w-full banner-section"
       style={{
         position: 'relative',
-        height: 'clamp(400px, 100vh, 1025px)',
+        height: '100vh',
         background: '#050b24',
         backgroundImage: 'url(/background.svg)',
         backgroundSize: 'cover',
@@ -47,8 +47,9 @@ export default function Banner() {
         style={{
           width: '800px',
           height: '600px',
-          left: 'calc(50% - 400px)',
-          top: 'calc(50% - 300px)',
+          left: '50%',
+          top: '50%',
+          transform: `translate(-50%, -50%)`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
@@ -66,7 +67,8 @@ export default function Banner() {
           style={{
             position: 'absolute',
             left: '-125px',
-            top: '360px',
+            top: '60%',
+            transform: 'translateY(-50%)',
             zIndex: 3,
             pointerEvents: 'none'
           }}
@@ -107,7 +109,8 @@ export default function Banner() {
           style={{
             position: 'absolute',
             left: '600px',
-            top: '189px',
+            top: '60%',
+            transform: 'translateY(-50%)',
             zIndex: 1,
             pointerEvents: 'none'
           }}
@@ -136,11 +139,11 @@ export default function Banner() {
         </svg>
         
         {/* Text labels for right lines */}
-        <div style={{ position: 'absolute', left: '840px', top: '135px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Food</div>
-        <div style={{ position: 'absolute', left: '815px', top: '231px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Medical</div>
-        <div style={{ position: 'absolute', left: '790px', top: '357px', border: '1px solid #FFFFFF', borderRadius: '100px', padding: '10px 24px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 600, whiteSpace: 'nowrap', pointerEvents: 'none' }}>Real Estate</div>
-        <div style={{ position: 'absolute', left: '815px', top: '455px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Automotive</div>
-        <div style={{ position: 'absolute', left: '840px', top: '552px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Tech</div>
+        <div style={{ position: 'absolute', left: '840px', top: '22.5%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Food</div>
+        <div style={{ position: 'absolute', left: '815px', top: '38.5%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Medical</div>
+        <div style={{ position: 'absolute', left: '790px', top: '59.5%', transform: 'translateY(-50%)', border: '1px solid #FFFFFF', borderRadius: '100px', padding: '10px 24px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 600, whiteSpace: 'nowrap', pointerEvents: 'none' }}>Real Estate</div>
+        <div style={{ position: 'absolute', left: '815px', top: '75.8%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Automotive</div>
+        <div style={{ position: 'absolute', left: '840px', top: '92%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Tech</div>
       </div>
 
       <div 
@@ -148,15 +151,14 @@ export default function Banner() {
         style={{
           width: '800px',
           height: '600px',
-          left: 'calc(50% - 400px)',
-          top: 'calc(50% - 300px)',
-          transform: `scale(${1 + volume * 0.3})`,
+          left: '50%',
+          top: '50%',
+          transform: `translate(-50%, -50%) scale(${1 + volume * 0.3})`,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           background: 'transparent',
-          transition: 'transform 0.2s ease-out',
-          transformOrigin: 'center center'
+          transition: 'transform 0.2s ease-out'
         }}
       >
         <div
@@ -222,7 +224,8 @@ export default function Banner() {
         width: 'auto',
         height: '41.91px',
         left: 'calc(50% - 635px)',
-        top: 'calc(50% + 12.5px)',
+        top: '57%',
+        transform: 'translateY(-50%)',
         border: '1px solid #FFFFFF',
         borderRadius: '100px',
         display: 'flex',
@@ -267,7 +270,7 @@ export default function Banner() {
         style={{
           width: '85%',
           maxWidth: '876.11px',
-          top: '210px',
+          top: '150px',
           fontFamily: 'Inter',
           fontWeight: 700,
           fontSize: '55px',

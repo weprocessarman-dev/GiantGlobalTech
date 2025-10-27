@@ -110,11 +110,16 @@ export default function SpeakButton({ onVoiceStart }: SpeakButtonProps) {
 
   return (
     <div 
-      className="absolute w-[131.62px] h-[45.29px] left-1/2 -translate-x-1/2 speak-button-wrapper"
-      style={{ top: 'calc(50% + 361.5px)', zIndex: 10 }}
+      className="absolute left-1/2 -translate-x-1/2 speak-button-wrapper"
+      style={{ 
+        width: 'clamp(100px, 7.5vw, 135px)', 
+        height: 'clamp(35px, 4vh, 48px)', 
+        top: 'clamp(580px, 82%, 900px)', 
+        zIndex: 10 
+      }}
     >
       <div 
-        className="absolute w-[131.62px] h-[45.29px] rounded-full"
+        className="absolute w-full h-full rounded-full"
         style={{
           background: isActive ? '#00FF88' : '#0058FF',
           filter: 'blur(30px)'
@@ -122,9 +127,11 @@ export default function SpeakButton({ onVoiceStart }: SpeakButtonProps) {
       />
       
       <button 
-        className="absolute w-[108.72px] h-[37.41px] left-1/2 -translate-x-1/2 rounded-full cursor-pointer"
+        className="absolute left-1/2 -translate-x-1/2 rounded-full cursor-pointer"
         style={{
-          top: '3.94px',
+          width: '82.6%',
+          height: '82.6%',
+          top: '8.7%',
           background: isActive 
             ? 'linear-gradient(180deg, #00FF88 0%, #00CC66 100%)' 
             : 'linear-gradient(180deg, #2C71F3 0%, #0D3DEE 100%)',
@@ -134,8 +141,8 @@ export default function SpeakButton({ onVoiceStart }: SpeakButtonProps) {
         onClick={handleClick}
       >
         <span 
-          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-xs"
-          style={{ fontFamily: 'Poppins', color: '#fff', zIndex: 2 }}
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
+          style={{ fontFamily: 'Poppins', fontSize: 'clamp(11px, 0.9vw, 14px)', color: '#fff', zIndex: 2 }}
         >
           {isActive ? 'Stop' : 'Speak'}
         </span>
