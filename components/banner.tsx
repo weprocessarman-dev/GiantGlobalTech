@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, lazy, Suspense } from 'react';
-import { motion } from 'framer-motion';
+import { motion, px } from 'framer-motion';
 import SpeakButton from './speak-button';
 
 const Spline = lazy(() => import('@splinetool/react-spline'));
@@ -33,7 +33,7 @@ export default function Banner() {
       className="w-full banner-section"
       style={{
         position: 'relative',
-        height: '100vh',
+        height: '1025.08px',
         background: '#050b24',
         backgroundImage: 'url(/background.svg)',
         backgroundSize: 'cover',
@@ -144,6 +144,23 @@ export default function Banner() {
         <div style={{ position: 'absolute', left: '790px', top: '59.5%', transform: 'translateY(-50%)', border: '1px solid #FFFFFF', borderRadius: '100px', padding: '10px 24px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 600, whiteSpace: 'nowrap', pointerEvents: 'none' }}>Real Estate</div>
         <div style={{ position: 'absolute', left: '815px', top: '75.8%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Automotive</div>
         <div style={{ position: 'absolute', left: '840px', top: '92%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Tech</div>
+        <div style={{
+          position: 'absolute',
+          left: '-250px',
+          top: '59.5%',
+          transform: 'translateY(-50%)',
+          border: '1px solid #FFFFFF',
+          borderRadius: '100px',
+          padding: '10px 24px',
+          color: 'white',
+          fontFamily: 'Poppins, sans-serif',
+          fontSize: '20px',
+          fontWeight: 600,
+          whiteSpace: 'nowrap',
+          pointerEvents: 'none'
+        }}>
+          Voice Support
+        </div>
       </div>
 
       <div 
@@ -217,39 +234,9 @@ export default function Banner() {
         </div>
       </div>
 
-      {/* Voice Support Badge */}
-      <div style={{
-        boxSizing: 'border-box',
-        position: 'absolute',
-        width: 'auto',
-        height: '41.91px',
-        left: 'calc(50% - 635px)',
-        top: '57%',
-        transform: 'translateY(-50%)',
-        border: '1px solid #FFFFFF',
-        borderRadius: '100px',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        padding: '0 24px',
-        whiteSpace: 'nowrap',
-        zIndex: 10
-      }}>
-        <span style={{
-          fontFamily: 'Poppins, sans-serif',
-          fontStyle: 'normal',
-          fontWeight: 600,
-          fontSize: '20px',
-          lineHeight: '30px',
-          color: '#FFFFFF'
-        }}>
-          Voice Support
-        </span>
-      </div>
-
       {/* Flare Image at Bottom Border */}
       <img
-        src="/Flare.png"
+        src="/Flare.png?v=2"
         alt="Flare"
         style={{
           position: 'absolute',
@@ -270,7 +257,7 @@ export default function Banner() {
         style={{
           width: '85%',
           maxWidth: '876.11px',
-          top: '150px',
+          top: '210px',
           fontFamily: 'Inter',
           fontWeight: 700,
           fontSize: '55px',
