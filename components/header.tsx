@@ -20,7 +20,7 @@ const Header = () => {
       textColor: "#fff",
       links: [
         { label: "Design", ariaLabel: "Design Services", href: "/design" },
-        { label: "Website", ariaLabel: "Website Services", href: "#website" },
+        { label: "Website", ariaLabel: "Website Services", href: "/web-development" },
         { label: "Marketing", ariaLabel: "Marketing Services", href: "#marketing"}
       ]
     },

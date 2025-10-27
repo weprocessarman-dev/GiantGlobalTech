@@ -36,7 +36,7 @@ export default function GradientActionSection() {
                   fontSize: '50px',
                   lineHeight: '55px',
                   textAlign: 'center',
-                  background: 'linear-gradient(90deg, rgba(0, 0, 0, 0.2) 0%, #FFFFFF 50.49%, rgba(0, 0, 0, 0.2) 100%)',
+                  background: 'linear-gradient(90deg, rgba(0, 0, 0, 0) 0%, #FFFFFF 50.49%, rgba(0, 0, 0, 0) 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -44,7 +44,7 @@ export default function GradientActionSection() {
                   margin: '0 auto',
                 }}
               >
-                Take Action Now
+                Get Started Today
               </h2>
               <p 
                 className={`${inter.className} text-lg mb-6`}

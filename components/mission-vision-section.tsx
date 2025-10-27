@@ -81,7 +81,6 @@ export default function MissionVisionSection() {
                   width: '100%',
                   height: '100%',
                   objectFit: 'contain',
-                  filter: 'drop-shadow(0 0 80px rgba(138, 43, 226, 0.8)) drop-shadow(0 0 40px rgba(138, 43, 226, 0.6))',
                 }}
               />
             </div>
@@ -109,7 +108,6 @@ export default function MissionVisionSection() {
                   width: '100%',
                   height: '100%',
                   objectFit: 'contain',
-                  filter: 'drop-shadow(0 0 80px rgba(138, 43, 226, 0.8)) drop-shadow(0 0 40px rgba(138, 43, 226, 0.6))',
                 }}
               />
             </div>
@@ -154,9 +152,7 @@ export default function MissionVisionSection() {
           </div>
         </div>
         
-        {/* Glow Effects - Fixed to Body Edges */}
-        <div className="mission-glow" />
-        <div className="vision-glow" />
+
       </div>
 
       {/* Floating Animations & Mobile Responsive Styles */}
@@ -197,42 +193,6 @@ export default function MissionVisionSection() {
           animation-delay: -2s;
         }
 
-        .mission-glow {
-          position: fixed;
-          width: 481.14px;
-          height: 481.14px;
-          left: -240px;
-          top: 300px;
-          opacity: 0.25;
-          background: radial-gradient(circle, 
-            #0D3DEE 100%, 
-            #A3B7FF 100%, 
-            #FFFFFF 100%, 
-            transparent 100%);
-          border-radius: 50%;
-          z-index: -1;
-          filter: blur(40px);
-          pointer-events: none;
-        }
-
-        .vision-glow {
-          position: fixed;
-          width: 481.14px;
-          height: 481.14px;
-          right: -240px;
-          top: 800px;
-          opacity: 0.25;
-          background: radial-gradient(circle, 
-            #0D3DEE 100%, 
-            #A3B7FF 100%, 
-            #FFFFFF 100%, 
-            transparent 100%);
-          border-radius: 50%;
-          z-index: -1;
-          filter: blur(40px);
-          pointer-events: none;
-        }
-
         @media (max-width: 1024px) {
           .grid {
             grid-template-columns: 1fr !important;
@@ -261,11 +221,6 @@ export default function MissionVisionSection() {
           .mission-float,
           .vision-float {
             margin: 0 auto !important;
-          }
-          
-          .mission-glow,
-          .vision-glow {
-            display: none !important;
           }
         }
         

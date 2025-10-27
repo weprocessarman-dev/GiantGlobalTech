@@ -1,14 +1,12 @@
-
 'use client';
 
-import Waves from './Waves';
+import dynamic from 'next/dynamic';
 
-export default function DesignBanner() {
+const Hyperspeed = dynamic(() => import('./Hyperspeed'), { ssr: false });
+
+export default function WebDevBanner() {
   return (
     <div style={{ width: '100%', position: 'relative', background: 'transparent', overflow: 'visible', maxWidth: '100%' }}>
-      <style jsx>{`
-
-      `}</style>
       <section
         className="banner-section"
         style={{
@@ -20,23 +18,30 @@ export default function DesignBanner() {
           background: 'transparent',
         }}
       >
-        {/* Waves with Background Image Colors */}
-        <Waves
-          lineColor="rgba(255, 255, 255, 0.8)"
-          backgroundColor="transparent"
-          waveSpeedX={0.015}
-          waveSpeedY={0.008}
-          waveAmpX={30}
-          waveAmpY={15}
-          friction={0.92}
-          tension={0.008}
-          maxCursorMove={80}
-          xGap={15}
-          yGap={40}
-          backgroundImage="/designbg.jpg"
-          style={{ zIndex: 1, width: '100%', height: '100%' }}
-        />
-
+        <div style={{ position: 'absolute', inset: 0, zIndex: 2 }}>
+          <Hyperspeed
+            effectOptions={{
+              distortion: 'turbulentDistortion',
+              length: 400,
+              roadWidth: 10,
+              islandWidth: 2,
+              lanesPerRoad: 3,
+              fov: 90,
+              fovSpeedUp: 150,
+              speedUp: 2,
+              colors: {
+                roadColor: 0x000000,
+                islandColor: 0x000000,
+                background: 0x000000,
+                shoulderLines: 0x3b82f6,
+                brokenLines: 0x60a5fa,
+                leftCars: [0x1e40af, 0x3b82f6, 0x60a5fa, 0x93c5fd],
+                rightCars: [0x2563eb, 0x3b82f6, 0x60a5fa, 0x93c5fd],
+                sticks: 0x3b82f6
+              }
+            }}
+          />
+        </div>
 
         <div style={{ position: 'absolute', inset: 0, zIndex: 10 }}>
           <h1
@@ -64,7 +69,7 @@ export default function DesignBanner() {
               userSelect: 'none',
             }}
           >
-            DESIGN
+            DEVELOPMENT
           </h1>
           <p
             className="banner-text"
@@ -87,14 +92,11 @@ export default function DesignBanner() {
               userSelect: 'none',
             }}
           >
-            Lorem ipsum dolor sit amet, consectetur elit, sed tempor dolor sit amet, consectetur elit, ipsum
+            Custom web development solutions that drive growth and deliver exceptional user experiences
           </p>
         </div>
-        
-        {/* Flare Image at Bottom Border */}
       </section>
       
-      {/* Flare Image on Bottom Border */}
       <img
         src="/Flare.png"
         alt="Flare"
