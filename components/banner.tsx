@@ -281,7 +281,59 @@ export default function Banner() {
       />
 
       {/* CSS Animation for Horizontal Glow Effect */}
-      <style jsx>{`
+      <style jsx global>{`
+        @media (max-height: 780px) {
+          .banner-section {
+            height: 780px !important;
+          }
+          .banner-section .spline-wrapper {
+            width: 608px !important;
+            height: 456px !important;
+          }
+          .banner-section .spline-wrapper svg:first-of-type {
+            left: -200px !important;
+            top: 60% !important;
+          }
+          .banner-section .spline-wrapper svg:nth-of-type(2) {
+            left: 500px !important;
+            top: 60% !important;
+          }
+          .banner-section .spline-wrapper > div {
+            font-size: 15px !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(1) {
+            left: 750px !important;
+            top: 11.5% !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(2) {
+            left: 720px !important;
+            top: 33% !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(3) {
+            left: 680px !important;
+            top: 59.5% !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(4) {
+            left: 720px !important;
+            top: 82% !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(5) {
+            left: 750px !important;
+            top: 103% !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(6) {
+            left: -270px !important;
+            top: 59.5% !important;
+          }
+          .banner-section .heading-text {
+            top: 160px !important;
+            font-size: 42px !important;
+          }
+          .speak-button-wrapper {
+            top: 665px !important;
+          }
+        }
+        
         @keyframes spin {
           to { transform: rotate(360deg); }
         }

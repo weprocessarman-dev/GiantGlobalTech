@@ -110,6 +110,16 @@ export default function ConnectionLines() {
       </div>
       
       <style jsx>{`
+        @media (max-height: 780px) {
+          .connection-lines-section {
+            height: 208px !important;
+          }
+          .connection-lines-svg {
+            width: 65% !important;
+            margin: 0 auto !important;
+          }
+        }
+        
         @media (max-width: 768px) {
           .connection-lines-section {
             height: 200px !important;

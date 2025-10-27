@@ -190,6 +190,31 @@ export default function FeatureCards() {
           transform: scale(1);
         }
 
+        @media (max-height: 780px) {
+          .card-container {
+            width: 283.75px !important;
+            height: 220.46px !important;
+            margin: 0 22.8px !important;
+          }
+          
+          .card-content h3 {
+            font-size: 38px !important;
+          }
+          
+          .card-content p {
+            font-size: 12px !important;
+          }
+          
+          .feature-cards-wrapper {
+            margin-bottom: 152px !important;
+            padding-bottom: 76px !important;
+          }
+          
+          .cards-flex {
+            gap: 45.6px !important;
+          }
+        }
+        
         @media (max-width: 768px) {
           .card-container {
             width: 90% !important;
