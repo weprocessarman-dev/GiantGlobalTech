@@ -21,7 +21,7 @@ const Header = () => {
       links: [
         { label: "Design", ariaLabel: "Design Services", href: "/design" },
         { label: "Website", ariaLabel: "Website Services", href: "/web-development" },
-        { label: "Marketing", ariaLabel: "Marketing Services", href: "#marketing"}
+        { label: "Marketing", ariaLabel: "Marketing Services", href: "/marketing"}
       ]
     },
     {

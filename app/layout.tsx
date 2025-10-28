@@ -28,8 +28,8 @@ export default function RootLayout({
           rel="stylesheet" 
         />
       </head>
-      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`}>
-        <div className="relative">
+      <body className={`font-sans ${GeistSans.variable} ${GeistMono.variable}`} style={{ overflowX: 'hidden', overflowY: 'visible' }}>
+        <div className="relative" style={{ overflow: 'visible' }}>
           <Header />
           {children}
         </div>
