@@ -282,6 +282,18 @@ export default function Banner() {
 
       {/* CSS Animation for Horizontal Glow Effect */}
       <style jsx global>{`
+        @media (min-width: 1441px) and (max-width: 1920px) {
+          .banner-section {
+            height: 800px !important;
+          }
+          .banner-section .heading-text {
+            top: 140px !important;
+          }
+          .speak-button-wrapper {
+            top: 650px !important;
+          }
+        }
+        
         @media (max-width: 1440px) {
           .banner-section {
             height: 780px !important;
