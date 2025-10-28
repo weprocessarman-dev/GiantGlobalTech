@@ -282,6 +282,67 @@ export default function Banner() {
 
       {/* CSS Animation for Horizontal Glow Effect */}
       <style jsx global>{`
+        @media (max-width: 1440px) {
+          .banner-section {
+            height: 780px !important;
+          }
+          .banner-section .spline-wrapper {
+            width: 600px !important;
+            height: 450px !important;
+          }
+          .banner-section .spline-wrapper svg:first-of-type {
+            width: 300px !important;
+            left: -130px !important;
+          }
+          .banner-section .spline-wrapper svg:nth-of-type(2) {
+            width: 178px !important;
+            height: 316px !important;
+            left: 480px !important;
+          }
+          .banner-section .spline-wrapper > div {
+            font-size: 15px !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(1) {
+            left: 680px !important;
+            top: 22.5% !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(2) {
+            left: 650px !important;
+            top: 38.5% !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(3) {
+            left: 610px !important;
+            top: 59.5% !important;
+            font-size: 15px !important;
+            padding: 8px 18px !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(4) {
+            left: 650px !important;
+            top: 75.8% !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(5) {
+            left: 680px !important;
+            top: 92% !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(6) {
+            left: -235px !important;
+            top: 59.5% !important;
+            font-size: 15px !important;
+            padding: 8px 18px !important;
+          }
+          .banner-section > div:nth-of-type(2) {
+            width: 600px !important;
+            height: 450px !important;
+          }
+          .banner-section .heading-text {
+            top: 140px !important;
+            font-size: 41px !important;
+          }
+          .speak-button-wrapper {
+            top: 630px !important;
+          }
+        }
+        
         @media (max-height: 780px) {
           .banner-section {
             height: 780px !important;
