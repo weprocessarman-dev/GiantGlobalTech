@@ -260,7 +260,7 @@ export default function Banner() {
           top: '210px',
           fontFamily: 'Inter',
           fontWeight: 700,
-          fontSize: '55px',
+          fontSize: '44px',
           lineHeight: '1.05',
           background: 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 50.49%, rgba(255, 255, 255, 0) 100%)',
           WebkitBackgroundClip: 'text',
@@ -290,7 +290,7 @@ export default function Banner() {
             top: 140px !important;
           }
           .speak-button-wrapper {
-            top: 650px !important;
+            top: 670px !important;
           }
         }
         
