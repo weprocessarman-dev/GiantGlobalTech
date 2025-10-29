@@ -67,7 +67,7 @@ const CardNav: React.FC<CardNavProps> = ({
 
         contentEl.offsetHeight;
 
-        const topBar = 60;
+        const topBar = 50;
         const padding = 16;
         const contentHeight = contentEl.scrollHeight;
 
@@ -86,7 +86,7 @@ const CardNav: React.FC<CardNavProps> = ({
     const navEl = navRef.current;
     if (!navEl) return null;
 
-    gsap.set(navEl, { height: 60, overflow: 'hidden' });
+    gsap.set(navEl, { height: 50, overflow: 'hidden' });
     gsap.set(cardsRef.current, { y: 50, opacity: 0 });
 
     const tl = gsap.timeline({ paused: true });
@@ -193,7 +193,7 @@ const CardNav: React.FC<CardNavProps> = ({
 
         .card-nav {
           display: block;
-          height: 60px;
+          height: 50px;
           padding: 0;
           background-color: rgba(255, 255, 255, 0.15);
           border: 0.5px solid rgba(255, 255, 255, 0.2);
@@ -212,7 +212,7 @@ const CardNav: React.FC<CardNavProps> = ({
           top: 0;
           left: 0;
           right: 0;
-          height: 60px;
+          height: 50px;
           display: flex;
           align-items: center;
           justify-content: space-between;
@@ -274,7 +274,9 @@ const CardNav: React.FC<CardNavProps> = ({
           border-radius: calc(0.75rem - 0.35rem);
           padding: 0 1rem;
           height: 100%;
-          font-weight: 600;
+          font-family: 'poppins', sans-serif;
+          font-weight: 700;
+          font-size: 12px;
           cursor: pointer;
           transition: background-color 0.3s ease;
         }
@@ -294,7 +296,7 @@ const CardNav: React.FC<CardNavProps> = ({
           position: absolute;
           left: 0;
           right: 0;
-          top: 60px;
+          top: 50px;
           bottom: 0;
           padding: 0.5rem;
           display: flex;
@@ -348,6 +350,15 @@ const CardNav: React.FC<CardNavProps> = ({
 
         .nav-card-link:hover {
           opacity: 0.75;
+        }
+
+        @media (min-width: 1200px) {
+          .card-nav-container {
+            top: 50;
+            transform: none;
+            width: 700px;
+            max-width: none;
+          }
         }
 
         @media (max-width: 768px) {

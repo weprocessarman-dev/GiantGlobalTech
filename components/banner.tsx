@@ -33,7 +33,7 @@ export default function Banner() {
       className="w-full banner-section"
       style={{
         position: 'relative',
-        height: '1025.08px',
+        height: '800px',
         background: '#050b24',
         backgroundImage: 'url(/background.svg)',
         backgroundSize: 'cover',
@@ -59,14 +59,14 @@ export default function Banner() {
       >
         {/* Left Line - Single horizontal line */}
         <svg 
-          width="400" 
+          width="300" 
           height="10" 
           viewBox="0 0 200 10" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
           style={{
             position: 'absolute',
-            left: '-125px',
+            left: '-80px',
             top: '60%',
             transform: 'translateY(-50%)',
             zIndex: 3,
@@ -102,13 +102,13 @@ export default function Banner() {
         {/* Right Lines - From SVG file */}
         <svg 
           width="238" 
-          height="422" 
+          height="372" 
           viewBox="0 0 116 211" 
           fill="none" 
           xmlns="http://www.w3.org/2000/svg"
           style={{
             position: 'absolute',
-            left: '600px',
+            left: '560px',
             top: '60%',
             transform: 'translateY(-50%)',
             zIndex: 1,
@@ -139,14 +139,14 @@ export default function Banner() {
         </svg>
         
         {/* Text labels for right lines */}
-        <div style={{ position: 'absolute', left: '840px', top: '22.5%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Food</div>
-        <div style={{ position: 'absolute', left: '815px', top: '38.5%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Medical</div>
-        <div style={{ position: 'absolute', left: '790px', top: '59.5%', transform: 'translateY(-50%)', border: '1px solid #FFFFFF', borderRadius: '100px', padding: '10px 24px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 600, whiteSpace: 'nowrap', pointerEvents: 'none' }}>Real Estate</div>
-        <div style={{ position: 'absolute', left: '815px', top: '75.8%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Automotive</div>
-        <div style={{ position: 'absolute', left: '840px', top: '92%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '20px', fontWeight: 500, pointerEvents: 'none' }}>Tech</div>
+        <div style={{ position: 'absolute', left: '805px', top: '27%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Food</div>
+        <div style={{ position: 'absolute', left: '775px', top: '41.5%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Medical</div>
+        <div style={{ position: 'absolute', left: '745px', top: '59.5%', transform: 'translateY(-50%)', border: '1px solid #FFFFFF', borderRadius: '100px', padding: '10px 24px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 600, whiteSpace: 'nowrap', pointerEvents: 'none' }}>Real Estate</div>
+        <div style={{ position: 'absolute', left: '775px', top: '74.2%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Automotive</div>
+        <div style={{ position: 'absolute', left: '805px', top: '89%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Tech</div>
         <div style={{
           position: 'absolute',
-          left: '-250px',
+          left: '-100px',
           top: '59.5%',
           transform: 'translateY(-50%)',
           border: '1px solid #FFFFFF',
@@ -154,7 +154,7 @@ export default function Banner() {
           padding: '10px 24px',
           color: 'white',
           fontFamily: 'Poppins, sans-serif',
-          fontSize: '20px',
+          fontSize: '16px',
           fontWeight: 600,
           whiteSpace: 'nowrap',
           pointerEvents: 'none'
@@ -164,7 +164,7 @@ export default function Banner() {
       </div>
 
       <div 
-        className="absolute"
+        className="absolute spline-container"
         style={{
           width: '800px',
           height: '600px',
@@ -181,8 +181,9 @@ export default function Banner() {
         <div
           style={{
             position: 'relative',
-            width: '100%',
-            height: '100%',
+            top: 10,
+            width: '45%',
+            height: '70%',
             overflow: 'hidden',
             borderRadius: '20px',
             pointerEvents: 'auto',
@@ -257,10 +258,10 @@ export default function Banner() {
         style={{
           width: '85%',
           maxWidth: '876.11px',
-          top: '210px',
+          top: '150px',
           fontFamily: 'Inter',
           fontWeight: 700,
-          fontSize: '44px',
+          fontSize: '40px',
           lineHeight: '1.05',
           background: 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 50.49%, rgba(255, 255, 255, 0) 100%)',
           WebkitBackgroundClip: 'text',
@@ -282,125 +283,72 @@ export default function Banner() {
 
       {/* CSS Animation for Horizontal Glow Effect */}
       <style jsx global>{`
-        @media (min-width: 1441px) and (max-width: 1920px) {
+        @media (max-width: 1440px) {
+          .banner-section .spline-wrapper svg:first-of-type {
+            left: -80px !important;
+          }
+        }
+
+        @media (min-width: 1200px) {
           .banner-section {
             height: 800px !important;
           }
-          .banner-section .heading-text {
-            top: 140px !important;
-          }
-          .speak-button-wrapper {
-            top: 670px !important;
-          }
-        }
-        
-        @media (max-width: 1440px) {
-          .banner-section {
-            height: 780px !important;
-          }
           .banner-section .spline-wrapper {
-            width: 600px !important;
-            height: 450px !important;
+            width: 800px !important;
+            height: 600px !important;
           }
           .banner-section .spline-wrapper svg:first-of-type {
-            width: 300px !important;
-            left: -130px !important;
+            width: 150px !important;
+            left: 80px !important;
           }
           .banner-section .spline-wrapper svg:nth-of-type(2) {
-            width: 178px !important;
-            height: 316px !important;
-            left: 480px !important;
-          }
-          .banner-section .spline-wrapper > div {
-            font-size: 15px !important;
+            width: 238px !important;
+            height: 372px !important;
+            left: 560px !important;
           }
           .banner-section .spline-wrapper > div:nth-of-type(1) {
-            left: 680px !important;
-            top: 22.5% !important;
+            left: 805px !important;
+            top: 27% !important;
+            font-size: 16px !important;
           }
           .banner-section .spline-wrapper > div:nth-of-type(2) {
-            left: 650px !important;
-            top: 38.5% !important;
+            left: 775px !important;
+            top: 41.5% !important;
+            font-size: 16px !important;
           }
           .banner-section .spline-wrapper > div:nth-of-type(3) {
-            left: 610px !important;
+            left: 745px !important;
             top: 59.5% !important;
-            font-size: 15px !important;
-            padding: 8px 18px !important;
+            font-size: 16px !important;
+            padding: 10px 24px !important;
           }
           .banner-section .spline-wrapper > div:nth-of-type(4) {
-            left: 650px !important;
-            top: 75.8% !important;
+            left: 775px !important;
+            top: 74.2% !important;
+            font-size: 16px !important;
           }
           .banner-section .spline-wrapper > div:nth-of-type(5) {
-            left: 680px !important;
-            top: 92% !important;
+            left: 805px !important;
+            top: 89% !important;
+            font-size: 16px !important;
           }
           .banner-section .spline-wrapper > div:nth-of-type(6) {
-            left: -235px !important;
+            left: -190px !important;
             top: 59.5% !important;
-            font-size: 15px !important;
-            padding: 8px 18px !important;
-          }
-          .banner-section > div:nth-of-type(2) {
-            width: 600px !important;
-            height: 450px !important;
-          }
-          .banner-section .heading-text {
-            top: 140px !important;
-            font-size: 41px !important;
-          }
-          .speak-button-wrapper {
-            top: 630px !important;
-          }
-        }
-        
-        @media (max-height: 780px) {
-          .banner-section {
-            height: 780px !important;
-          }
-          .banner-section .spline-wrapper {
-            width: 608px !important;
-            height: 456px !important;
-          }
-          .banner-section .spline-wrapper svg:first-of-type {
-            left: -200px !important;
-            top: 60% !important;
-          }
-          .banner-section .spline-wrapper svg:nth-of-type(2) {
-            left: 500px !important;
-            top: 60% !important;
-          }
-          .banner-section .spline-wrapper > div {
-            font-size: 15px !important;
-          }
-          .banner-section .spline-wrapper > div:nth-of-type(1) {
-            left: 750px !important;
-            top: 11.5% !important;
-          }
-          .banner-section .spline-wrapper > div:nth-of-type(2) {
-            left: 720px !important;
-            top: 33% !important;
-          }
-          .banner-section .spline-wrapper > div:nth-of-type(3) {
-            left: 680px !important;
-            top: 59.5% !important;
-          }
-          .banner-section .spline-wrapper > div:nth-of-type(4) {
-            left: 720px !important;
-            top: 82% !important;
-          }
-          .banner-section .spline-wrapper > div:nth-of-type(5) {
-            left: 750px !important;
-            top: 103% !important;
+            font-size: 16px !important;
+            padding: 10px 24px !important;
           }
           .banner-section .spline-wrapper > div:nth-of-type(6) {
-            left: -270px !important;
+            left: -90px !important;
             top: 59.5% !important;
           }
+          .banner-section .spline-container {
+            width: 800px !important;
+            height: 600px !important;
+          }
           .banner-section .heading-text {
-            top: 160px !important;
-            font-size: 42px !important;
+            top: 150px !important;
+            font-size: 40px !important;
           }
           .speak-button-wrapper {
             top: 665px !important;
