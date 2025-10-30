@@ -7,13 +7,13 @@ const inter = Inter({ subsets: ['latin'] });
 export default function GradientSection() {
   return (
     <section className="w-full py-16 md:py-20">
-      <div className="max-w-[1440px] mx-auto px-4" style={{ marginTop: '80px' }}>
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8" style={{ marginTop: '60px' }}>
         {/* Gradient Container */}
         <div 
           className="w-full relative"
           style={{
-            width: '1035.4px',
-            height: '345.11px',
+            width: '1000px',
+            height: '350px',
             maxWidth: '100%',
             margin: '0 auto',
             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%)',
@@ -32,13 +32,11 @@ export default function GradientSection() {
               <h2 
                 className={`${inter.className} font-bold mb-4`}
                 style={{
-                  width: '719.45px',
-                  height: '55.66px',
                   fontFamily: 'Inter',
                   fontStyle: 'normal',
                   fontWeight: 700,
-                  fontSize: '50px',
-                  lineHeight: '55px',
+                  fontSize: '44px',
+                  lineHeight: '50px',
                   textAlign: 'center' as const,
                   background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, #FFFFFF 50.49%, rgba(255, 255, 255, 0.2) 100%)',
                   WebkitBackgroundClip: 'text',

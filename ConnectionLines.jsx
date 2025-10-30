@@ -15,24 +15,30 @@ export default function ConnectionLines() {
   const branchLineOffset = useTransform(scrollYProgress, [0, 1], [1000, 0]);
 
   return (
-    <section className="w-full connection-lines-section h-[280px] md:h-[250px] lg:h-[300px] relative mb-12">
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-full">
+    <section className="w-{1200px} connection-lines-section" style={{ height: '300px', position: 'relative', marginBottom: '50px' }}>
+      <div className="max-w-[1200px] mx-auto px-4" style={{ height: '100%' }}>
         <div 
           ref={containerRef}
           style={{
             width: '100%',
             height: '100%',
             margin: '0 auto',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems:'center',
             position: 'relative',
             overflow: 'visible'
           }}
         >
           <svg 
-            className="w-full h-full max-w-[800px] mx-auto" 
+            width="80%" 
+            height="300"
+            className="connection-lines-svg" 
             viewBox="0 0 1200 300" 
             fill="none" 
             xmlns="http://www.w3.org/2000/svg" 
             preserveAspectRatio="xMidYMid meet"
+            style={{ display: 'block', margin: '0 auto' }}
           >
         {/* Main vertical line - fixed */}
         <path 
@@ -106,7 +112,36 @@ export default function ConnectionLines() {
         </div>
       </div>
       
-
+      <style jsx>{`
+        @media (min-width: 1200px) {
+          .connection-lines-section {
+            width: 80% !important;
+            height: 300px !important;
+          }
+        }
+        
+        @media (max-height: 780px) {
+          .connection-lines-section {
+            height: 208px !important;
+          }
+          .connection-lines-svg {
+            width: 65% !important;
+            margin: 0 auto !important;
+          }
+        }
+        
+        @media (max-width: 768px) {
+          .connection-lines-section {
+            height: 200px !important;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .connection-lines-section {
+            height: 150px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }

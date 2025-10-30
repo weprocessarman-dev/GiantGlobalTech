@@ -7,12 +7,11 @@ export default function WavesSection() {
     <section 
       className="w-full"
       style={{
-        marginTop: '-300px',
         backgroundColor: '#000012',
         backgroundBlendMode: 'lighten'
       }}
     >
-      <div className="max-w-[1440px] mx-auto px-4" style={{
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8" style={{
         backgroundRepeat: 'no-repeat',
         backgroundImage: 'url("/Waves.gif")',
         backgroundSize: 'cover',

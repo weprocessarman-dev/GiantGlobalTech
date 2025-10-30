@@ -7,26 +7,27 @@ const inter = Inter({ subsets: ['latin'] });
 export default function BackgroundSection() {
   return (
     <section className="w-full py-16 md:py-20">
-      <div className="w-full mx-auto px-4" style={{ marginTop: '80px', marginBottom: '80px' }}>
-        {/* Background Container */}
-        <div 
-          className="w-full relative"
-          style={{
-            position: 'relative',
-            width: '100%',
-            height: '274.37px',
-            maxWidth: '100%',
-            margin: '0 auto',
-            background: '#142249',
-            overflow: 'hidden',
-          }}
-        >
+      {/* Background Container - Full Width */}
+      <div 
+        className="w-full relative"
+        style={{
+          position: 'relative',
+          width: '100%',
+          height: '274.37px',
+          background: '#142249',
+          overflow: 'hidden',
+          marginTop: '60px',
+          marginBottom: '60px'
+        }}
+      >
+        {/* Content Container - 1200px max-width */}
+        <div className="max-w-[1200px] mx-auto relative h-full" style={{ padding: '0 100px' }}>
           {/* GGT Logo - Left Positioned */}
           <div 
             className="absolute flex items-baseline"
             style={{
               position: 'absolute',
-              left: '80px',
+              left: '100px',
               top: '50%',
               transform: 'translateY(-50%)',
               zIndex: 10,
@@ -97,32 +98,29 @@ export default function BackgroundSection() {
             </div>
           </div>
 
-          {/* Newsletter Section - Centered */}
+          {/* Newsletter Section - Right Positioned */}
           <div 
             className="absolute flex flex-col"
             style={{
               position: 'absolute',
-              left: '50%',
+              right: '100px',
               top: '50%',
-              transform: 'translate(10%, -50%)',
-              width: '616.78px',
-              maxWidth: '90%',
+              transform: 'translateY(-50%)',
+              width: '500px',
+              maxWidth: '50%',
             }}
           >
             {/* Subscribe Heading */}
             <h2 
               className={`${inter.className}`}
               style={{
-                position: 'relative',
-                width: '411.88px',
-                height: '22.22px',
                 fontFamily: 'Inter',
                 fontStyle: 'normal',
                 fontWeight: 600,
-                fontSize: '24px',
-                lineHeight: '29px',
+                fontSize: '20px',
+                lineHeight: '24px',
                 color: '#FFFFFF',
-                marginBottom: '21.38px',
+                marginBottom: '16px',
               }}
             >
               Subscribe To The News Letter
@@ -133,9 +131,8 @@ export default function BackgroundSection() {
               className="relative"
               style={{
                 position: 'relative',
-                width: '616.78px',
+                width: '100%',
                 height: '51.03px',
-                maxWidth: '100%',
               }}
             >
               {/* Input Field */}

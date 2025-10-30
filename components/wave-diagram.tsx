@@ -47,7 +47,7 @@ export default function WaveDiagram() {
   
   return (
     <section className="w-full py-16" ref={containerRef}>
-      <div className="max-w-[1440px] mx-auto px-4">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center">
           <div 
             className="wave-diagram-container relative rounded-2xl overflow-hidden"

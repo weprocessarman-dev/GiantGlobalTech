@@ -16,15 +16,15 @@ export default function StartMovingFast() {
         .pricing-container {
           position: relative;
           overflow: visible;
-          margin: 0 50px;
+          margin: 0;
         }
 
         .pricing-card {
-          margin-top: 50px;
-          width: 380px;
-          height: auto;
+          margin-top: 20px;
+          width: 305px;
+          height: 460px;
           border-radius: 24px;
-          padding: 40px 32px;
+          padding: 24px 20px;
           display: flex;
           flex-direction: column;
           transition: all 0.3s ease;
@@ -54,48 +54,48 @@ export default function StartMovingFast() {
         }
 
         .plan-title {
-          font-size: 24px;
+          font-size: 20px;
           font-weight: 600;
-          margin-bottom: 24px;
+          margin-bottom: 12px;
           color: rgba(255, 255, 255, 0.9);
           font-family: 'Inter', sans-serif;
         }
 
         .price {
-          font-size: 48px;
+          font-size: 36px;
           font-weight: 700;
           color: white;
-          margin-bottom: 8px;
+          margin-bottom: 4px;
           font-family: 'Inter', sans-serif;
         }
 
         .price-period {
-          font-size: 16px;
+          font-size: 14px;
           font-weight: 400;
           color: rgba(255, 255, 255, 0.7);
-          margin-bottom: 24px;
+          margin-bottom: 12px;
           font-family: 'Inter', sans-serif;
         }
 
         .plan-description {
-          font-size: 16px;
+          font-size: 13px;
           color: rgba(255, 255, 255, 0.8);
-          line-height: 1.5;
-          margin-bottom: 32px;
+          line-height: 1.3;
+          margin-bottom: 16px;
           font-family: 'Inter', sans-serif;
         }
 
         .start-button {
           width: 100%;
-          padding: 16px 24px;
-          border-radius: 12px;
-          font-size: 16px;
+          padding: 12px 16px;
+          border-radius: 10px;
+          font-size: 14px;
           font-weight: 600;
           font-family: 'Inter', sans-serif;
           border: none;
           cursor: pointer;
           transition: all 0.3s ease;
-          margin-bottom: 18px;
+          margin-bottom: 10px;
         }
 
         .start-button.standard {
@@ -123,8 +123,8 @@ export default function StartMovingFast() {
         .feature-item {
           display: flex;
           align-items: center;
-          margin-bottom: 16px;
-          font-size: 14px;
+          margin-bottom: 8px;
+          font-size: 12px;
           color: rgba(255, 255, 255, 0.8);
           font-family: 'Inter', sans-serif;
         }
@@ -147,10 +147,10 @@ export default function StartMovingFast() {
         }
 
         .feature-title {
-          font-size: 18px;
+          font-size: 14px;
           font-weight: 600;
           color: white;
-          margin-bottom: 24px;
+          margin-bottom: 10px;
           font-family: 'Inter', sans-serif;
         }
 
@@ -195,10 +195,10 @@ export default function StartMovingFast() {
         }
 
         .sub-text {
-          font-size: 10px;
+          font-size: 9px;
           color: rgba(255, 255, 255, 0.6);
           text-align: center;
-          margin-bottom: 20px;
+          margin-bottom: 8px;
           font-weight: 400;
           font-family: 'Inter', sans-serif;
         }
@@ -237,13 +237,14 @@ export default function StartMovingFast() {
         }
       `}</style>
       
-      <section className="w-full py-16">
-        <div className="max-w-[1440px] mx-auto px-4">
-          <div className="flex flex-col items-center">
+      <section className="w-full py-12">
+        <div className="max-w-[1200px] mx-auto">
+          <div className="flex justify-center">
+            <div style={{ width: '1000px', height: '656px', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0' }}>
             <h2 
-              className={`${inter.className} font-bold text-center mb-6`}
+              className={`${inter.className} font-bold text-center`}
               style={{
-                fontSize: '50px',
+                fontSize: '44px',
                 fontWeight: 600,
                 background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, #FFFFFF 50.4916%, rgba(255, 255, 255, 0.2) 100%)',
                 backgroundClip: 'text',
@@ -255,13 +256,13 @@ export default function StartMovingFast() {
               Plans Made For Businesses
             </h2>
 
-            <p className={`${inter.className} text-white text-center max-w-2xl mb-16`} style={{ color: '#FFFFFF', fontSize: '18px', lineHeight: '1.6' }}>
+            <p className={`${inter.className} text-white text-center max-w-2xl`} style={{ color: '#FFFFFF', fontSize: '16px', lineHeight: '1.5', marginBottom: '45px' }}>
               Transform your business with cutting-edge AI solutions that deliver results. Experience the<br />
                power of intelligent automation and data-driven insights.
             </p>
 
             {/* Pricing Cards */}
-            <div className="flex flex-wrap justify-center gap-16 mt-8">
+            <div className="flex justify-between" style={{ width: '100%' }}>
               {/* Left Card - Standard with Star */}
               <div className="pricing-container">
                 <div className="pricing-card standard">
@@ -405,6 +406,7 @@ export default function StartMovingFast() {
                   />
                 </div>
               </div>
+            </div>
             </div>
           </div>
         </div>

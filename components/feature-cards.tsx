@@ -32,14 +32,20 @@ export default function FeatureCards() {
         
         .card-container {
           position: relative;
-          width: 373.36px;
-          height: 290.08px;
+          width: 310px;
+          height: 240px;
           display: flex;
           justify-content: center;
           align-items: center;
-          margin: 0 30px;
           transition: 0.5s;
           cursor: pointer;
+        }
+        
+        @media (max-width: 767px) {
+          .card-container {
+            width: 100%;
+            max-width: 310px;
+          }
         }
         
         .card-container::before {
@@ -190,36 +196,9 @@ export default function FeatureCards() {
           transform: scale(1);
         }
 
-        @media (max-height: 780px) {
+        @media (max-width: 767px) {
           .card-container {
-            width: 283.75px !important;
-            height: 220.46px !important;
-            margin: 0 22.8px !important;
-          }
-          
-          .card-content h3 {
-            font-size: 38px !important;
-          }
-          
-          .card-content p {
-            font-size: 12px !important;
-          }
-          
-          .feature-cards-wrapper {
-            margin-bottom: 152px !important;
-            padding-bottom: 76px !important;
-          }
-          
-          .cards-flex {
-            gap: 45.6px !important;
-          }
-        }
-        
-        @media (max-width: 768px) {
-          .card-container {
-            width: 90% !important;
-            height: 250px !important;
-            margin: 0 auto 30px !important;
+            height: 220px;
           }
           
           .card-content h3 {
@@ -229,21 +208,11 @@ export default function FeatureCards() {
           .card-content p {
             font-size: 14px !important;
           }
-          
-          .feature-cards-wrapper {
-            margin-bottom: 100px !important;
-            padding-bottom: 50px !important;
-          }
-          
-          .cards-flex {
-            flex-direction: column !important;
-            gap: 30px !important;
-          }
         }
         
         @media (max-width: 480px) {
           .card-container {
-            height: 220px !important;
+            height: 200px;
           }
           
           .card-content h3 {
@@ -256,8 +225,8 @@ export default function FeatureCards() {
           }
         }
       `}</style>
-      <div className="w-full max-w-[1440px] mx-auto px-4 feature-cards-wrapper" style={{marginBottom: '200px', paddingBottom: '100px' }}>
-      <div className="flex justify-center items-center flex-wrap cards-flex" style={{ gap: '60px' }}>
+      <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-32 pb-16 lg:mb-40 lg:pb-20">
+      <div className="flex justify-center items-center flex-wrap" style={{ gap: '30px' }}>
         {cards.map((card) => (
           <div
             key={card.id}

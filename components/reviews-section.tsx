@@ -37,8 +37,8 @@ const reviewsData: Review[] = [
 export default function ReviewsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
-  const [cardWidth] = useState(600);
-  const [cardGap] = useState(24);
+  const [cardWidth] = useState(544);
+  const [cardGap] = useState(20);
   
   // Calculate total width for one card including gap
   const cardTotalWidth = cardWidth + cardGap;
@@ -60,9 +60,9 @@ export default function ReviewsSection() {
     boxSizing: 'border-box' as const,
     background: 'rgba(135, 135, 135, 0.2)',
     borderRadius: '20px',
-    padding: '30px',
+    padding: '5px 24px',
     width: `${cardWidth}px`,
-    height: '280px',
+    minHeight: 'auto',
     display: 'flex' as const,
     flexDirection: 'column' as const,
     justifyContent: 'space-between' as const,
@@ -159,27 +159,30 @@ export default function ReviewsSection() {
 
   return (
     <section className="w-full py-16 md:py-20">
-      <div className="w-full mx-auto px-4">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">
           <h2 
             className={`${inter.className} font-bold text-center mb-6`}
             style={{
-              fontSize: '50px',
+              fontSize: '44px',
               fontWeight: 800,
-              marginTop: '80px',
+              marginTop: '60px',
+              lineHeight: '1.1',
               background: 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
             }}
           >
-            What Our Customers Say About Us!
+            What Our Customers
+            <br />
+            Say About Us!
           </h2>
         </div>
 
         {/* Reviews Container */}
-        <div className="w-full overflow-hidden">
+        <div className="w-full overflow-hidden" style={{ width: '100vw', marginLeft: 'calc(-50vw + 50%)', marginRight: 'calc(-50vw + 50%)' }}>
           <motion.div 
             className="flex"
             drag="x"

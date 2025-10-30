@@ -43,33 +43,30 @@ export default function FAQSection() {
 
   return (
     <section className="w-full py-16 md:py-20">
-      <div className="max-w-[1440px] mx-auto px-4">
-        {/* Heading */}
-        <div className="text-center mb-12 md:mb-16">
-          <h2 
-            className={`${inter.className} font-bold text-center mb-6`}
-            style={{
-              fontSize: '50px',
-              fontWeight: 800,
-              marginTop: '80px',
-              background: 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            Everything You Need To Know
-            <br />
-            Before Getting Started
-          </h2>
-          <p className={`${inter.className} text-white text-center max-w-2xl mb-16`} style={{ color: '#FFFFFF', fontSize: '18px', lineHeight: '1.6' }}>
-            The answers you need to make the right decision, with total confidence.
-          </p>
-        </div>
-
-        {/* FAQ Items Container */}
-        <div className="w-full max-w-4xl mx-auto">
-          <div className="w-full mx-auto space-y-8">
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-center">
+          <div style={{ width: '800px', height: '860px', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '80px' }}>
+            <h2 
+              className={`${inter.className} font-bold text-center`}
+              style={{
+                fontSize: '44px',
+                fontWeight: 800,
+                marginBottom: '5px',
+                lineHeight: '1.1',
+                background: 'linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, #FFFFFF 50%, rgba(255, 255, 255, 0) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              Everything You Need To Know
+              <br style={{ marginBottom: '5px' }} />
+              Before Getting Started
+            </h2>
+            <p className={`${inter.className} text-white text-center`} style={{ color: '#FFFFFF', fontSize: '16px', lineHeight: '1.5', marginBottom: '20px' }}>
+              The answers you need to make the right decision, with total confidence.
+            </p>
+            <div className="space-y-4" style={{ width: '100%', flex: 1, overflow: 'auto' }}>
             {faqData.map((faq, index) => (
               <div
                 key={index}
@@ -77,8 +74,8 @@ export default function FAQSection() {
                 style={{
                   boxSizing: 'border-box',
                   position: 'relative',
-                  width: '820px',
-                  minHeight: '95.81px',
+                  width: '100%',
+                  minHeight: '94px',
                   background: 'rgba(135, 135, 135, 0.2)',
                   borderRadius: '20px',
                   margin: '0 auto',
@@ -94,7 +91,7 @@ export default function FAQSection() {
                   className="w-full px-6 py-6 flex items-center justify-between text-left transition-all duration-200"
                   style={{
                     backgroundColor: 'transparent',
-                    minHeight: '95.81px'
+                    minHeight: '94px'
                   }}
                 >
                   <span 
@@ -174,6 +171,7 @@ export default function FAQSection() {
                 </div>
               </div>
             ))}
+            </div>
           </div>
         </div>
       </div>

@@ -298,8 +298,8 @@ export default function Banner() {
             height: 600px !important;
           }
           .banner-section .spline-wrapper svg:first-of-type {
-            width: 150px !important;
-            left: 80px !important;
+            width: 120px !important;
+            left: 90px !important;
           }
           .banner-section .spline-wrapper svg:nth-of-type(2) {
             width: 238px !important;

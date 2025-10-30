@@ -40,8 +40,7 @@ export default function Home() {
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
       >
-        <FeatureCards />
-      </motion.div>
+      <FeatureCards />
       <WavesSection />
       <AboutGGT />
       <WaveDiagram />
@@ -50,6 +49,7 @@ export default function Home() {
       <ReviewsSection />
       <GradientSection />
       <NewsletterSection />
+      </motion.div>
     </div>
   );
 }
