@@ -60,7 +60,7 @@ export default function ReviewsSection() {
     boxSizing: 'border-box' as const,
     background: 'rgba(135, 135, 135, 0.2)',
     borderRadius: '20px',
-    padding: '5px 24px',
+    padding: '30px 5px 24px 24px',
     width: `${cardWidth}px`,
     minHeight: 'auto',
     display: 'flex' as const,
@@ -76,13 +76,13 @@ export default function ReviewsSection() {
 
   const ReviewCard = ({ review }: { review: Review }) => (
     <div
-      className="flex-shrink-0 transition-all duration-300 ease-in-out hover:transform hover:scale-105"
+      className="flex-shrink-0 transition-all duration-300 ease-in-out hover:transform hover:scale-105 review-card"
       style={{...cardStyle, transformOrigin: 'bottom center'}}
     >
       {/* Content - Centered with padding */}
-      <div className="mb-6 text-center px-8">
+      <div className="mb-6 text-center px-8 review-text-container">
         <p 
-          className={`${inter.className} leading-relaxed text-base md:text-lg`}
+          className={`${inter.className} leading-relaxed text-base md:text-lg review-text`}
           style={{
             color: 'rgba(255, 255, 255, 0.9)',
             fontWeight: 400,
@@ -94,7 +94,7 @@ export default function ReviewsSection() {
       </div>
 
       {/* Avatar and Info - Horizontal Left Aligned Layout */}
-      <div className="flex items-center justify-center">
+      <div className="flex items-center justify-center review-avatar-container">
         {/* Avatar Container */}
         <div 
           className="flex-shrink-0 mr-4"
@@ -104,6 +104,7 @@ export default function ReviewsSection() {
             borderRadius: '50%',
             background: 'linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 100%)',
             border: '2px solid rgba(255, 255, 255, 0.3)',
+            marginTop: '20px',
             padding: '3px',
             display: 'flex',
             alignItems: 'center',
@@ -130,13 +131,14 @@ export default function ReviewsSection() {
         </div>
         
         {/* Name and Position - Left Aligned */}
-        <div className="text-left">
+        <div className="review-name">
           <h4 
             className={`${inter.className} font-semibold text-lg`}
             style={{
               color: '#FFFFFF',
               fontWeight: 600,
               fontSize: '12px',
+              marginTop: '20px',
               marginBottom: '4px'
             }}
           >
@@ -158,12 +160,102 @@ export default function ReviewsSection() {
   );
 
   return (
+    <>
+      <style jsx global>{`
+        @media (min-width: 810px) and (max-width: 1199px) {
+          .review-card {
+            width: 410px !important;
+            height: auto !important;
+            padding: 20px 15px !important;
+            overflow: hidden !important;
+          }
+          
+          .review-text-container {
+            padding: 5px !important;
+            margin-bottom: 10px !important;
+          }
+          
+          .review-text {
+            font-size: 12px !important;
+            line-height: 1.4 !important;
+          }
+          
+          .review-name h4 {
+            font-size: 12px !important;
+            margin-bottom: 2px !important;
+            margin-top: 0 !important;
+          }
+          
+          .review-name p {
+            font-size: 10px !important;
+          }
+          
+          .review-heading {
+            font-size: 36px !important;
+          }
+          
+          .review-avatar-container > div:first-child {
+            width: 40px !important;
+            height: 40px !important;
+            margin-top: 0 !important;
+          }
+        }
+        
+        @media (min-width: 390px) and (max-width: 809px) {
+          .review-heading {
+            font-size: 24px !important;
+          }
+          
+          .review-card {
+            width: 350px !important;
+            height: 220px !important;
+            min-height: 220px !important;
+            max-height: 220px !important;
+            padding: 15px 10px !important;
+            overflow: hidden !important;
+          }
+          
+          .review-text-container {
+            padding: 5px !important;
+            margin-bottom: 5px !important;
+          }
+          
+          .review-text {
+            font-size: 12px !important;
+            line-height: 1.3 !important;
+          }
+          
+          .review-avatar-container {
+            margin-top: 0 !important;
+          }
+          
+          .review-avatar-container > div:first-child {
+            width: 30px !important;
+            height: 30px !important;
+            margin-top: 0 !important;
+            padding: 1px !important;
+          }
+          
+          .review-name h4 {
+            font-size: 10px !important;
+            margin-top: 0 !important;
+            margin-bottom: 2px !important;
+          }
+          
+          .review-name p {
+            font-size: 8px !important;
+            line-height: 1.2 !important;
+            white-space: normal !important;
+            word-wrap: break-word !important;
+          }
+        }
+      `}</style>
     <section className="w-full py-16 md:py-20">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="text-center mb-12 md:mb-16">
           <h2 
-            className={`${inter.className} font-bold text-center mb-6`}
+            className={`${inter.className} font-bold text-center mb-6 review-heading`}
             style={{
               fontSize: '44px',
               fontWeight: 800,
@@ -232,5 +324,6 @@ export default function ReviewsSection() {
 
 
     </section>
+    </>
   );
 }

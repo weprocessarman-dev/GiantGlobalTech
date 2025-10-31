@@ -352,6 +352,18 @@ const CardNav: React.FC<CardNavProps> = ({
           opacity: 0.75;
         }
 
+        @media (max-width: 1199px) {
+          .card-nav-container {
+            width: 610px;
+          }
+          .card-nav {
+            height: 51px;
+          }
+          .card-nav-top {
+            height: 51px;
+          }
+        }
+        
         @media (min-width: 1200px) {
           .card-nav-container {
             top: 50;

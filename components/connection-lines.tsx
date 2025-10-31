@@ -16,6 +16,13 @@ export default function ConnectionLines() {
 
   return (
     <section className="w-full connection-lines-section h-[280px] md:h-[250px] lg:h-[300px] relative mb-12">
+      <style jsx>{`
+        @media (max-width: 809px) {
+          .connection-lines-section {
+            display: none;
+          }
+        }
+      `}</style>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 h-full">
         <div 
           ref={containerRef}

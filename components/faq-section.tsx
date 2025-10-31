@@ -42,12 +42,71 @@ export default function FAQSection() {
   };
 
   return (
+    <>
+      <style jsx>{`
+        @media (min-width: 810px) and (max-width: 1199px) {
+          .faq-container {
+            width: 610px !important;
+            height: auto !important;
+          }
+          
+          .faq-heading {
+            font-size: 36px !important;
+          }
+          
+          .faq-text {
+            font-size: 16px !important;
+          }
+          
+          .faq-item {
+            min-height: 72px !important;
+          }
+          
+          .faq-question {
+            font-size: 20px !important;
+            min-height: 72px !important;
+          }
+          
+          .faq-answer {
+            font-size: 14px !important;
+          }
+        }
+        
+        @media (min-width: 390px) and (max-width: 809px) {
+          .faq-container {
+            width: 100% !important;
+            height: auto !important;
+          }
+          
+          .faq-heading {
+            font-size: 24px !important;
+          }
+          
+          .faq-text {
+            font-size: 14px !important;
+          }
+          
+          .faq-item {
+            width: 350px !important;
+            min-height: 50px !important;
+          }
+          
+          .faq-question {
+            font-size: 14px !important;
+            min-height: 50px !important;
+          }
+          
+          .faq-answer {
+            font-size: 10px !important;
+          }
+        }
+      `}</style>
     <section className="w-full py-16 md:py-20">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center">
-          <div style={{ width: '800px', height: '860px', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '80px' }}>
+          <div className="faq-container" style={{ width: '800px', height: '860px', display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '80px' }}>
             <h2 
-              className={`${inter.className} font-bold text-center`}
+              className={`${inter.className} font-bold text-center faq-heading`}
               style={{
                 fontSize: '44px',
                 fontWeight: 800,
@@ -63,14 +122,14 @@ export default function FAQSection() {
               <br style={{ marginBottom: '5px' }} />
               Before Getting Started
             </h2>
-            <p className={`${inter.className} text-white text-center`} style={{ color: '#FFFFFF', fontSize: '16px', lineHeight: '1.5', marginBottom: '20px' }}>
+            <p className={`${inter.className} text-white text-center faq-text`} style={{ color: '#FFFFFF', fontSize: '16px', lineHeight: '1.5', marginBottom: '20px' }}>
               The answers you need to make the right decision, with total confidence.
             </p>
             <div className="space-y-4" style={{ width: '100%', flex: 1, overflow: 'auto' }}>
             {faqData.map((faq, index) => (
               <div
                 key={index}
-                className="overflow-hidden transition-all duration-300 ease-in-out"
+                className="overflow-hidden transition-all duration-300 ease-in-out faq-item"
                 style={{
                   boxSizing: 'border-box',
                   position: 'relative',
@@ -88,7 +147,7 @@ export default function FAQSection() {
                 {/* Question Header */}
                 <button
                   onClick={() => toggleFAQ(index)}
-                  className="w-full px-6 py-6 flex items-center justify-between text-left transition-all duration-200"
+                  className="w-full px-6 py-6 flex items-center justify-between text-left transition-all duration-200 faq-question"
                   style={{
                     backgroundColor: 'transparent',
                     minHeight: '94px'
@@ -156,7 +215,7 @@ export default function FAQSection() {
                 >
                   <div className="px-6 pb-6 pt-0">
                     <p 
-                      className={`${inter.className} leading-relaxed text-base`}
+                      className={`${inter.className} leading-relaxed text-base faq-answer`}
                       style={{
                         color: 'rgba(255, 255, 255, 0.8)',
                         fontWeight: 400,
@@ -176,5 +235,6 @@ export default function FAQSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }

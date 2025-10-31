@@ -6,11 +6,61 @@ const inter = Inter({ subsets: ['latin'] });
 
 export default function GradientSection() {
   return (
+    <>
+      <style jsx>{`
+        @media (min-width: 810px) and (max-width: 1199px) {
+          .gradient-container {
+            width: 610px !important;
+            height: 350px !important;
+          }
+          
+          .gradient-heading {
+            font-size: 36px !important;
+            line-height: 42px !important;
+            font-family: 'Inter', sans-serif !important;
+          }
+          
+          .gradient-text {
+            font-size: 18px !important;
+            font-family: 'Inter', sans-serif !important;
+          }
+          
+          .gradient-button {
+            width: 200px !important;
+            height: 56px !important;
+            font-size: 18px !important;
+            padding: 14px 24px !important;
+            font-family: 'Inter', sans-serif !important;
+          }
+        }
+        
+        @media (min-width: 390px) and (max-width: 809px) {
+          .gradient-container {
+            width: 350px !important;
+            height: 250px !important;
+          }
+          
+          .gradient-heading {
+            font-size: 24px !important;
+            line-height: 28px !important;
+          }
+          
+          .gradient-text {
+            font-size: 14px !important;
+          }
+
+          .gradient-button {
+            width: 150px !important;
+            height: 46px !important;
+            font-size: 12px !important;
+            padding: 14px 24px !important;
+        }
+      `}</style>
     <section className="w-full py-16 md:py-20">
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8" style={{ marginTop: '60px' }}>
         {/* Gradient Container */}
         <div 
-          className="w-full relative"
+          className="w-full relative gradient-container"
           style={{
             width: '1000px',
             height: '350px',
@@ -30,7 +80,7 @@ export default function GradientSection() {
           <div className="w-full h-full flex items-center justify-center p-8">
             <div className="text-center">
               <h2 
-                className={`${inter.className} font-bold mb-4`}
+                className={`${inter.className} font-bold mb-4 gradient-heading`}
                 style={{
                   fontFamily: 'Inter',
                   fontStyle: 'normal',
@@ -49,10 +99,11 @@ export default function GradientSection() {
                 Get Started Today
               </h2>
               <p 
-                className={`${inter.className} text-lg mb-6`}
+                className={`${inter.className} mb-6 gradient-text`}
                 style={{
                   color: 'rgba(255, 255, 255, 0.8)',
                   fontWeight: 400,
+                  fontSize: '18px',
                 }}
               >
                 Add your content inside this gradient container
@@ -60,7 +111,7 @@ export default function GradientSection() {
               
               {/* Get Started Button */}
               <button
-                className={`${inter.className} font-medium transition-all duration-300 ease-in-out hover:transform hover:scale-105`}
+                className={`${inter.className} font-medium transition-all duration-300 ease-in-out hover:transform hover:scale-105 gradient-button`}
                 style={{
                   boxSizing: 'border-box',
                   width: '200px',
@@ -85,5 +136,6 @@ export default function GradientSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }

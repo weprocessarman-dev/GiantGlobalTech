@@ -139,16 +139,13 @@ export default function Banner() {
         </svg>
         
         {/* Text labels for right lines */}
-        <div style={{ position: 'absolute', left: '805px', top: '27%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Food</div>
-        <div style={{ position: 'absolute', left: '775px', top: '41.5%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Medical</div>
-        <div style={{ position: 'absolute', left: '745px', top: '59.5%', transform: 'translateY(-50%)', border: '1px solid #FFFFFF', borderRadius: '100px', padding: '10px 24px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 600, whiteSpace: 'nowrap', pointerEvents: 'none' }}>Real Estate</div>
-        <div style={{ position: 'absolute', left: '775px', top: '74.2%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Automotive</div>
-        <div style={{ position: 'absolute', left: '805px', top: '89%', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Tech</div>
-        <div style={{
+        <div className="label-food" style={{ position: 'absolute', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Food</div>
+        <div className="label-medical" style={{ position: 'absolute', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Medical</div>
+        <div className="label-realestate" style={{ position: 'absolute', transform: 'translateY(-50%)', border: '1px solid #FFFFFF', borderRadius: '100px', padding: '10px 24px', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 600, whiteSpace: 'nowrap', pointerEvents: 'none' }}>Real Estate</div>
+        <div className="label-automotive" style={{ position: 'absolute', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Automotive</div>
+        <div className="label-tech" style={{ position: 'absolute', color: 'white', fontFamily: 'Poppins, sans-serif', fontSize: '16px', fontWeight: 500, pointerEvents: 'none' }}>Tech</div>
+        <div className="voice-support-label" style={{
           position: 'absolute',
-          left: '-100px',
-          top: '59.5%',
-          transform: 'translateY(-50%)',
           border: '1px solid #FFFFFF',
           borderRadius: '100px',
           padding: '10px 24px',
@@ -181,7 +178,6 @@ export default function Banner() {
         <div
           style={{
             position: 'relative',
-            top: 10,
             width: '45%',
             height: '70%',
             overflow: 'hidden',
@@ -212,13 +208,14 @@ export default function Banner() {
             </div>
           }>
             <Spline
-              scene="https://prod.spline.design/uMchW1Yhk3YPEhQh/scene.splinecode"
+              scene="https://prod.spline.design/fy59dTaNnre5w-Wf/scene.splinecode"
               style={{
                 width: '120%',
                 height: '120%',
                 position: 'absolute',
-                left: '-10%',
-                top: '-1%',
+                left: '50%',
+                top: '40%',
+                transform: 'translate(-50%, -50%)',
                 zIndex: 2,
                 pointerEvents: 'auto'
               }}
@@ -283,12 +280,199 @@ export default function Banner() {
 
       {/* CSS Animation for Horizontal Glow Effect */}
       <style jsx global>{`
+        .label-food { left: 805px; top: 27%; }
+        .label-medical { left: 775px; top: 41.5%; }
+        .label-realestate { left: 745px; top: 59.5%; }
+        .label-automotive { left: 775px; top: 74.2%; }
+        .label-tech { left: 805px; top: 89%; }
+        .voice-support-label {
+          left: -100px;
+          top: 59.5%;
+          transform: translateY(-50%);
+        }
+        
         @media (max-width: 1440px) {
           .banner-section .spline-wrapper svg:first-of-type {
             left: -80px !important;
           }
         }
 
+        @media (min-width: 810px) and (max-width: 1199px) {
+          .banner-section {
+            height: 1080px !important;
+            overflow: visible !important;
+          }
+          .cardnav {
+            width: 610px !important;
+            height: 51px !important;
+          }
+          .banner-section .heading-text {
+            top: 95px !important;
+            font-size: 36px !important;
+          }
+          .banner-section .spline-wrapper {
+            transform: translate(-50%, -50%) rotate(90deg) !important;
+            width: 600px !important;
+            height: 800px !important;
+          }
+          .banner-section .spline-container {
+            transform: translate(-50%, -50%) scale(1.2) !important;
+            width: 600px !important;
+            height: 900px !important;
+            overflow: visible !important;
+          }
+          .banner-section .spline-container > div {
+            overflow: visible !important;
+          }
+          /* Hide Spline default logo */
+          .banner-section .spline-container canvas + div,
+          .banner-section .spline-container a[href*="spline"] {
+            display: none !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+          }
+          /* Left SVG line */
+          .banner-section .spline-wrapper svg:first-of-type {
+            width: 100px !important;
+            top: 50% !important;
+            left: 15% !important;
+            transform: translate(-50%, -50%) !important;
+          }
+          /* Right SVG lines */
+          .banner-section .spline-wrapper svg:nth-of-type(2) {
+            width: 600px !important;
+            height: 550px !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%) !important;
+          }
+          /* Labels - rotate back to horizontal */
+          .banner-section .spline-wrapper > div:nth-of-type(1) {
+            left: 120% !important;
+            top: 15% !important;
+            transform: translateY(-50%) rotate(-90deg) !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(2) {
+            top: 31.5% !important;
+            left: 110% !important;
+            transform: translateY(-50%) rotate(-90deg) !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(3) {
+            top: 50% !important;
+            left: 98% !important;
+            transform: translateY(-50%) rotate(-90deg) !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(4) {
+            top: 68.5% !important;
+            left: 107% !important;
+            transform: translateY(-50%) rotate(-90deg) !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(5) {
+            top: 85% !important;
+            left: 120% !important;
+            transform: translateY(-50%) rotate(-90deg) !important;
+          }
+          .banner-section .spline-wrapper > div:nth-of-type(6) {
+            left: -15% !important;
+            top: 50% !important;
+            transform: translateY(-50%) rotate(-90deg) !important;
+          }
+          /* Speak button */
+          .speak-button-wrapper {
+            top: 90% !important;
+          }
+          /* Hide connection lines */
+          .connection-lines-section {
+            display: none !important;
+          }
+        }
+        
+        @media (max-width: 809px) {
+          .banner-section {
+            height: 690px !important;
+            max-width: 100% !important;
+            margin: 0 auto !important;
+          }
+          .banner-section .heading-text,
+          .banner-section h1 {
+            font-size: 20px !important;
+            top: 80px !important;
+            width: 100% !important;
+            line-height: 1.2 !important;
+          }
+          .banner-section .spline-wrapper {
+            width: 390px !important;
+            height: 690px !important;
+            transform: translate(-50%, -50%) rotate(90deg) !important;
+          }
+          .banner-section .spline-container {
+            width: 390px !important;
+            height: 690px !important;
+            transform: translate(-50%, -50%) !important;
+          }
+          /* Left SVG */
+          .banner-section .spline-wrapper svg:first-of-type {
+            width: 80px !important;
+            height: 10px !important;
+            left: 20% !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%) !important;
+          }
+          /* Right SVG */
+          .banner-section .spline-wrapper svg:nth-of-type(2) {
+            width: 250px !important;
+            height: 600px !important;
+            left: 90% !important;
+            top: 50% !important;
+            transform: translate(-50%, -50%) scale(0.6) !important;
+          }
+          /* All labels font size 8px */
+          .banner-section .spline-wrapper > div {
+            font-size: 8px !important;
+            padding: 4px 8px !important;
+          }
+          /* Food */
+          .banner-section .label-food {
+            top: 68.2% !important;
+            left: 112% !important;
+            transform: translateX(-50%) rotate(-90deg) !important;
+          }
+          /* Medical */
+          .banner-section .label-medical {
+            top: 59% !important;
+            left: 108% !important;
+            transform: translateX(-50%) rotate(-90deg) !important;
+          }
+          /* Real Estate */
+          .banner-section .label-realestate {
+            top: 50% !important;
+            left: 102.5% !important;
+            transform: translate(-50%, -50%) rotate(-90deg) !important;
+          }
+          /* Automotive */
+          .banner-section .label-automotive {
+            top: 37.5% !important;
+            left: 108% !important;
+            transform: translateX(-50%) rotate(-90deg) !important;
+          }
+          /* Tech */
+          .banner-section .label-tech {
+            top: 29% !important;
+            left: 112% !important;
+            transform: translateX(-50%) rotate(-90deg) !important;
+          }
+          /* Voice Support */
+          .banner-section .voice-support-label {
+            top: 50% !important;
+            left: 5% !important;
+            transform: translate(-50%, -50%) rotate(-90deg) !important;
+          }
+          /* Speak button */
+          .speak-button-wrapper {
+            top: 90% !important;
+            left: 50% !important;
+          }
+        }
+        
         @media (min-width: 1200px) {
           .banner-section {
             height: 800px !important;

@@ -32,6 +32,75 @@ export default function StartMovingFast() {
           backdrop-filter: blur(10px);
           cursor: pointer;
         }
+        
+        @media (min-width: 810px) and (max-width: 1199px) {
+          .pricing-card {
+            width: 410px;
+            height: 620px;
+            margin-bottom: 30px;
+            padding: 40px 30px;
+          }
+          
+          .pricing-card.featured {
+            transform: scale(1);
+          }
+          
+          .pricing-card.featured:hover {
+            transform: translateY(-8px);
+          }
+          
+          .plan-title {
+            font-size: 16px !important;
+            margin-bottom: 40px !important;
+          }
+          
+          .price {
+            font-size: 32px !important;
+            margin-bottom: 8px !important;
+          }
+          
+          .price-period {
+            font-size: 16px !important;
+            margin-bottom: 25px !important;
+          }
+          
+          .plan-description {
+            font-size: 15px !important;
+            margin-bottom: 25px !important;
+          }
+          
+          .start-button {
+            padding: 16px 20px !important;
+            font-size: 16px !important;
+            margin-bottom: 18px !important;
+          }
+          
+          .sub-text {
+            font-size: 11px !important;
+            margin-bottom: 65px !important;
+          }
+          
+          .feature-title {
+            font-size: 16px !important;
+            margin-bottom: 16px !important;
+            text-align: left !important;
+          }
+          
+          .feature-item {
+            font-size: 14px !important;
+            margin-bottom: 12px !important;
+            justify-content: flex-start !important;
+          }
+          
+          .feature-list {
+            margin-left: -8px !important;
+          }
+          
+          .checkmark {
+            margin-right: 12px !important;
+            margin-left: 0 !important;
+          }
+        }
 
         .pricing-card.standard {
           background: rgba(255, 255, 255, 0.08);
@@ -203,36 +272,49 @@ export default function StartMovingFast() {
           font-family: 'Inter', sans-serif;
         }
         
-        @media (max-width: 768px) {
-          .pricing-container {
-            margin: 0 20px;
+        @media (min-width: 810px) and (max-width: 1199px) {
+          .pricing-main-container {
+            width: 610px !important;
+            height: auto !important;
           }
           
-          .pricing-card {
-            width: 100%;
-            max-width: 350px;
-          }
-          
-          .small-card {
-            display: none;
+          .pricing-cards-wrapper {
+            flex-direction: column !important;
+            align-items: center !important;
           }
         }
         
-        @media (max-width: 480px) {
+        @media (min-width: 390px) and (max-width: 809px) {
+          .pricing-heading {
+            font-size: 24px !important;
+          }
+          
+          .pricing-para {
+            font-size: 14px !important;
+          }
+          
+          .pricing-para br {
+            display: none;
+          }
+          
+          .pricing-main-container {
+            width: 390px !important;
+            height: auto !important;
+            min-height: 1600px !important;
+          }
+          
+          .pricing-cards-wrapper {
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          
           .pricing-card {
-            padding: 30px 24px;
+            width: 350px !important;
+            margin-bottom: 30px !important;
           }
           
-          .plan-title {
-            font-size: 20px;
-          }
-          
-          .price {
-            font-size: 40px;
-          }
-          
-          .plan-description {
-            font-size: 14px;
+          .small-card {
+            display: none !important;
           }
         }
       `}</style>
@@ -240,9 +322,9 @@ export default function StartMovingFast() {
       <section className="w-full py-12">
         <div className="max-w-[1200px] mx-auto">
           <div className="flex justify-center">
-            <div style={{ width: '1000px', height: '656px', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0' }}>
+            <div className="pricing-main-container" style={{ width: '1000px', height: '656px', display: 'flex', flexDirection: 'column', alignItems: 'center', padding: '0' }}>
             <h2 
-              className={`${inter.className} font-bold text-center`}
+              className={`${inter.className} font-bold text-center pricing-heading`}
               style={{
                 fontSize: '44px',
                 fontWeight: 600,
@@ -256,13 +338,13 @@ export default function StartMovingFast() {
               Plans Made For Businesses
             </h2>
 
-            <p className={`${inter.className} text-white text-center max-w-2xl`} style={{ color: '#FFFFFF', fontSize: '16px', lineHeight: '1.5', marginBottom: '45px' }}>
+            <p className={`${inter.className} text-white text-center max-w-2xl pricing-para`} style={{ color: '#FFFFFF', fontSize: '16px', lineHeight: '1.5', marginBottom: '45px' }}>
               Transform your business with cutting-edge AI solutions that deliver results. Experience the<br />
                power of intelligent automation and data-driven insights.
             </p>
 
             {/* Pricing Cards */}
-            <div className="flex justify-between" style={{ width: '100%' }}>
+            <div className="flex justify-between pricing-cards-wrapper" style={{ width: '100%' }}>
               {/* Left Card - Standard with Star */}
               <div className="pricing-container">
                 <div className="pricing-card standard">

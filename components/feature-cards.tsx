@@ -40,14 +40,6 @@ export default function FeatureCards() {
           transition: 0.5s;
           cursor: pointer;
         }
-        
-        @media (max-width: 767px) {
-          .card-container {
-            width: 100%;
-            max-width: 310px;
-          }
-        }
-        
         .card-container::before {
           content: '';
           position: absolute;
@@ -196,37 +188,50 @@ export default function FeatureCards() {
           transform: scale(1);
         }
 
-        @media (max-width: 767px) {
+        @media (min-width: 810px) and (max-width: 1199px) {
+          .feature-cards-wrapper {
+            margin-top: 150px !important;
+            margin-bottom: 150px !important;
+            height: 800px;
+          }
+          .cards-container {
+            flex-direction: column !important;
+            align-items: center !important;
+            gap: 50px !important;
+          }
           .card-container {
-            height: 220px;
-          }
-          
-          .card-content h3 {
-            font-size: 40px !important;
-          }
-          
-          .card-content p {
-            font-size: 14px !important;
+            width: 400px !important;
+            height: 300px !important;
           }
         }
         
-        @media (max-width: 480px) {
+        @media (min-width: 390px) and (max-width: 809px) {
+          .feature-cards-wrapper {
+            margin-top: 100px !important;
+            margin-bottom: 20px !important;
+          }
+          
+          .cards-container {
+            flex-direction: column !important;
+            align-items: center !important;
+          }
+          
           .card-container {
-            height: 200px;
+            width: 290px !important;
+            height: 226px !important;
           }
           
           .card-content h3 {
-            font-size: 32px !important;
+            font-size: 30px !important;
           }
           
           .card-content p {
             font-size: 12px !important;
-            padding: 8px 12px !important;
           }
         }
       `}</style>
-      <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-32 pb-16 lg:mb-40 lg:pb-20">
-      <div className="flex justify-center items-center flex-wrap" style={{ gap: '30px' }}>
+      <div className="w-full max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mb-32 pb-16 lg:mb-40 lg:pb-20 feature-cards-wrapper">
+      <div className="flex justify-center items-center flex-wrap cards-container" style={{ gap: '30px' }}>
         {cards.map((card) => (
           <div
             key={card.id}

@@ -46,7 +46,42 @@ export default function WaveDiagram() {
   const num3Y = useTransform(scrollYProgress, [0.45, 0.5], [25, 0]);
   
   return (
-    <section className="w-full py-16" ref={containerRef}>
+    <>
+      <style jsx>{`
+        @media (min-width: 390px) and (max-width: 809px) {
+          .wave-diagram-container {
+            width: 290px !important;
+            height: 800px !important;
+          }
+          
+          .wave-heading {
+            font-size: 24px !important;
+          }
+          
+          .wave-description {
+            font-size: 14px !important;
+            margin-bottom: 50px !important;
+          }
+          
+          .wave-svg-container {
+            top: 500px !important;
+          }
+          
+          .wave-svg-container > div {
+            transform: rotate(90deg) scale(2.5) !important;
+          }
+          
+          .wave-svg-container svg text[font-size="126"] {
+            font-size: 80px !important;
+          }
+          
+          .wave-svg-container svg text[font-size="28"],
+          .wave-svg-container svg text[font-size="26"] {
+            font-size: 18px !important;
+          }
+        }
+      `}</style>
+      <section className="w-full py-16" ref={containerRef}>
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-center">
           <div 
@@ -60,9 +95,9 @@ export default function WaveDiagram() {
             <div className="absolute top-0 left-0 w-full" style={{ marginTop: '50px' }}>
               <div className="text-center px-8">
                 <h2 
-                  className={`font-bold mb-4`}
+                  className="font-bold mb-4 wave-heading"
                   style={{
-                    fontSize: '50px',
+                    fontSize: '44px',
                     fontWeight: 600,
                     background: 'linear-gradient(90deg, rgba(255, 255, 255, 0.2) 20%, #FFFFFF 100%, rgba(255, 255, 255, 0.2) 20%)',
                     backgroundClip: 'text',
@@ -74,7 +109,7 @@ export default function WaveDiagram() {
                   How We'll Work Together
                 </h2>
                 <p 
-                  className="text-white text-base leading-relaxed"
+                  className="text-white text-base leading-relaxed wave-description"
                   style={{
                     fontWeight: 400,
                     opacity: 0.9,
@@ -88,14 +123,15 @@ export default function WaveDiagram() {
 
             {/* Wave SVG Container */}
             <div 
-              className="absolute w-full flex justify-center items-center" 
+              className="absolute w-full flex justify-center items-center wave-svg-container" 
               style={{ 
                 top: '50%', 
                 left: '50%', 
                 transform: 'translate(-50%, -50%)',
               }}
             >
-              <svg width="1200" height="460" viewBox="0 -50 1085 320" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ paddingTop: '10px' }}>
+              <div>
+              <svg width="1200" height="460" viewBox="-100 -150 1285 520" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ paddingTop: '10px' }}>
                 {/* Animated Wave Paths - Drawing from start to end */}
                 <g filter="url(#filter0_f_125_159)" transform="translate(15, 0)">
                   <motion.path 
@@ -336,10 +372,12 @@ export default function WaveDiagram() {
                   </linearGradient>
                 </defs>
               </svg>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    </>
   );
 }
