@@ -1,157 +1,171 @@
 'use client';
 
 import { Inter } from 'next/font/google';
+import { useState, useEffect, useRef } from 'react';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export default function StartNowSection() {
+  const [satisfaction, setSatisfaction] = useState(0);
+  const [projects, setProjects] = useState(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting && !hasAnimated) {
+          setHasAnimated(true);
+          
+          // Animate 99%
+          let count1 = 0;
+          const interval1 = setInterval(() => {
+            count1 += 1;
+            setSatisfaction(count1);
+            if (count1 >= 99) clearInterval(interval1);
+          }, 20);
+          
+          // Animate 5k+
+          let count2 = 0;
+          const interval2 = setInterval(() => {
+            count2 += 50;
+            setProjects(count2);
+            if (count2 >= 5000) {
+              setProjects(5000);
+              clearInterval(interval2);
+            }
+          }, 20);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
 
   return (
     <section 
-      className="w-full" 
-      style={{
-        marginTop: '80px',
-      }}
+      ref={sectionRef}
+      className="w-full start-now-section"
     >
-      <div className="container mx-auto px-4" style={{ maxWidth: '1440px' }}>
-        <div
-          style={{
-            position: 'relative',
-            width: '100%',
-            maxWidth: '1040px',
-            height: '169.33px',
-            margin: '0 auto',
-            borderRadius: '15px',
-            overflow: 'visible',
-            backgroundImage: 'url(/startnowrectangle.png)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            padding: '0 60px',
-          }}
-        >
+      <div className="container mx-auto px-4 section-container">
+        <div className="content-wrapper">
         {/* Left Side - Stats Content */}
-        <div 
-          style={{
-            display: 'flex',
-            alignItems: 'center',
-            gap: '80px',
-            zIndex: 2,
-          }}
-        >
+        <div className="stats-container">
           {/* 99% Client Satisfaction */}
-          <div style={{ textAlign: 'center' }}>
-            <h3 
-              className={`${inter.className}`}
-              style={{
-                fontSize: '48px',
-                fontWeight: 700,
-                color: 'white',
-                margin: 0,
-                lineHeight: '1',
-              }}
-            >
-              99%
+          <div className="stat-item">
+            <h3 className={`${inter.className} stat-number`}>
+              {satisfaction}%
             </h3>
-            <p 
-              className={`${inter.className}`}
-              style={{
-                fontSize: '16px',
-                fontWeight: 400,
-                color: 'rgba(255, 255, 255, 0.9)',
-                margin: '8px 0 0 0',
-                lineHeight: '1.2',
-              }}
-            >
+            <p className={`${inter.className} stat-label`}>
               Client Satisfaction
             </p>
           </div>
 
           {/* 5k+ Project Completed */}
-          <div style={{ textAlign: 'center' }}>
-            <h3 
-              className={`${inter.className}`}
-              style={{
-                fontSize: '48px',
-                fontWeight: 700,
-                color: 'white',
-                margin: 0,
-                lineHeight: '1',
-              }}
-            >
-              5k+
+          <div className="stat-item">
+            <h3 className={`${inter.className} stat-number`}>
+              {projects >= 5000 ? '5k+' : projects}
             </h3>
-            <p 
-              className={`${inter.className}`}
-              style={{
-                fontSize: '16px',
-                fontWeight: 400,
-                color: 'rgba(255, 255, 255, 0.9)',
-                margin: '8px 0 0 0',
-                lineHeight: '1.2',
-              }}
-            >
+            <p className={`${inter.className} stat-label`}>
               Project Completed
             </p>
           </div>
 
           {/* 24/7 Full Support */}
-          <div style={{ textAlign: 'center' }}>
-            <h3 
-              className={`${inter.className}`}
-              style={{
-                fontSize: '48px',
-                fontWeight: 700,
-                color: 'white',
-                margin: 0,
-                lineHeight: '1',
-              }}
-            >
+          <div className="stat-item">
+            <h3 className={`${inter.className} stat-number`}>
               24/7
             </h3>
-            <p 
-              className={`${inter.className}`}
-              style={{
-                fontSize: '16px',
-                fontWeight: 400,
-                color: 'rgba(255, 255, 255, 0.9)',
-                margin: '8px 0 0 0',
-                lineHeight: '1.2',
-              }}
-            >
+            <p className={`${inter.className} stat-label`}>
               Full Support
             </p>
           </div>
         </div>
 
         {/* Right Side - Gear Image */}
-        <div 
-          style={{
-            position: 'absolute',
-            right: '50px',
-            top: '50%',
-            transform: 'translateY(-50%)',
-            zIndex: 3,
-          }}
-        >
+        <div className="gear-container">
           <img 
             src="/Featuregare.png" 
             alt="Feature Gear"
             className="gear-float"
-            style={{
-              width: '400px',
-              height: '400px',
-              objectFit: 'contain',
-            }}
           />
         </div>
         </div>
       </div>
 
-      {/* Floating Animation for Gear */}
+      {/* Styles */}
       <style jsx>{`
+        .start-now-section {
+          margin-top: 80px;
+        }
+
+        .section-container {
+          max-width: 1440px;
+        }
+
+        .content-wrapper {
+          position: relative;
+          width: 100%;
+          max-width: 1000px;
+          height: 169px;
+          margin: 0 auto;
+          border-radius: 15px;
+          overflow: visible;
+          background-image: url(/startnowrectangle.png);
+          background-size: cover;
+          background-position: center;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 60px;
+        }
+
+        .stats-container {
+          display: flex;
+          align-items: center;
+          gap: 80px;
+          z-index: 2;
+        }
+
+        .stat-item {
+          text-align: center;
+        }
+
+        .stat-number {
+          font-size: 44px;
+          font-weight: 700;
+          color: white;
+          margin: 0;
+          line-height: 1;
+        }
+
+        .stat-label {
+          font-size: 16px;
+          font-weight: 400;
+          color: rgba(255, 255, 255, 0.9);
+          margin: 8px 0 0 0;
+          line-height: 1.2;
+        }
+
+        .gear-container {
+          position: absolute;
+          right: 50px;
+          top: 50%;
+          transform: translateY(-50%);
+          z-index: 3;
+        }
+
+        .gear-float {
+          width: 335px;
+          height: 335px;
+          object-fit: contain;
+        }
+
         @keyframes floatGear {
           0%, 100% {
             transform: translateY(0px) rotate(0deg) scale(1);
@@ -166,81 +180,82 @@ export default function StartNowSection() {
             transform: translateY(-10px) rotate(1deg) scale(1.01);
           }
         }
+        
         .gear-float {
           animation: floatGear 7s ease-in-out infinite;
         }
-        
-        @media (max-width: 1024px) {
-          section > div > div {
-            width: 90% !important;
-            height: auto !important;
-            padding: 40px 30px !important;
-            flex-direction: column !important;
-            gap: 30px !important;
+
+        @media (min-width: 810px) and (max-width: 1199px) {
+          .content-wrapper {
+            max-width: 610px;
+            height: 84px;
+            padding: 0 30px;
           }
-          
-          section > div > div:first-child {
-            flex-direction: column !important;
-            gap: 30px !important;
-            width: 100% !important;
+
+          .stat-number {
+            font-size: 24px;
           }
-          
-          section > div > div:last-child {
-            position: relative !important;
-            right: auto !important;
-            top: auto !important;
-            transform: none !important;
-            display: flex !important;
-            justify-content: center !important;
+
+          .stat-label {
+            font-size: 12px;
           }
-          
+
+          .stats-container {
+            gap: 40px;
+          }
+
           .gear-float {
-            width: 250px !important;
-            height: 250px !important;
+            width: 286px !important;
+            height: 286px !important;
+          }
+
+          .gear-container {
+            right: 30px;
           }
         }
-        
-        @media (max-width: 768px) {
-          section > div {
-            width: 60% !important;
-            padding: 30px 20px !important;
-            margin-top: 60px !important;
+
+        @media (max-width: 809px) {
+          .content-wrapper {
+            max-width: 180px;
+            height: 783px;
+            flex-direction: column;
+            padding: 40px 20px;
+            justify-content: center;
           }
-          
-          section > div > div:first-child h3 {
-            font-size: 36px !important;
+
+          .stats-container {
+            flex-direction: column;
+            gap: 40px;
           }
-          
-          section > div > div:first-child p {
-            font-size: 14px !important;
+
+          .stat-number {
+            font-size: 40px;
           }
-          
+
+          .stat-label {
+            font-size: 16px;
+          }
+
+          .gear-container {
+            position: relative;
+            right: auto;
+            top: auto;
+            transform: none;
+          }
+
+          .gear-container {
+            width: 379px !important;
+            height: 379px !important;
+          }
+
           .gear-float {
-            width: 200px !important;
-            height: 200px !important;
+            width: 379px !important;
+            height: 379px !important;
           }
-        }
-        
-        @media (max-width: 480px) {
-          section > div {
-            padding: 25px 15px !important;
-          }
-          
-          section > div > div:first-child {
-            gap: 20px !important;
-          }
-          
-          section > div > div:first-child h3 {
-            font-size: 32px !important;
-          }
-          
-          section > div > div:first-child p {
-            font-size: 12px !important;
-          }
-          
-          .gear-float {
-            width: 150px !important;
-            height: 150px !important;
+
+          .gear-container img {
+            width: 379px !important;
+            height: 379px !important;
           }
         }
       `}</style>
