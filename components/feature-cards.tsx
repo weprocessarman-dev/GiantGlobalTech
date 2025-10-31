@@ -207,13 +207,14 @@ export default function FeatureCards() {
         
         @media (min-width: 390px) and (max-width: 809px) {
           .feature-cards-wrapper {
-            margin-top: 100px !important;
-            margin-bottom: 20px !important;
+            margin-top: 110px !important;
+            margin-bottom: 0 !important;
           }
           
           .cards-container {
             flex-direction: column !important;
             align-items: center !important;
+            gap: 60px !important;
           }
           
           .card-container {

@@ -79,6 +79,16 @@ export default function WaveDiagram() {
           .wave-svg-container svg text[font-size="26"] {
             font-size: 18px !important;
           }
+          
+          .wave-svg-container .wave-text-label {
+            transform: rotate(-90deg) translate(-15px, -15px) !important;
+            transform-box: fill-box !important;
+            transform-origin: center !important;
+          }
+          
+          .wave-svg-container .wave-text-line2 {
+            transform: rotate(-90deg) translate(15px, 15px) !important;
+          }
         }
       `}</style>
       <section className="w-full py-16" ref={containerRef}>
@@ -263,7 +273,7 @@ export default function WaveDiagram() {
                   fontSize="28" 
                   fontWeight="400"
                   fill="white"
-                  className={inter.className}
+                  className={`${inter.className} wave-text-label`}
                 >
                   Share
                 </text>
@@ -274,7 +284,7 @@ export default function WaveDiagram() {
                   fontSize="28" 
                   fontWeight="400"
                   fill="white"
-                  className={inter.className}
+                  className={`${inter.className} wave-text-label wave-text-line2`}
                 >
                   Your Vision
                 </text>
@@ -287,7 +297,7 @@ export default function WaveDiagram() {
                   fontSize="28" 
                   fontWeight="400"
                   fill="white"
-                  className={inter.className}
+                  className={`${inter.className} wave-text-label`}
                 >
                   We Build
                 </text>
@@ -298,7 +308,7 @@ export default function WaveDiagram() {
                   fontSize="28" 
                   fontWeight="400"
                   fill="white"
-                  className={inter.className}
+                  className={`${inter.className} wave-text-label wave-text-line2`}
                 >
                   the Plan
                 </text>
@@ -311,7 +321,7 @@ export default function WaveDiagram() {
                   fontSize="26" 
                   fontWeight="400"
                   fill="white"
-                  className={inter.className}
+                  className={`${inter.className} wave-text-label`}
                 >
                   Achieve
                 </text>
@@ -322,7 +332,7 @@ export default function WaveDiagram() {
                   fontSize="26" 
                   fontWeight="400"
                   fill="white"
-                  className={inter.className}
+                  className={`${inter.className} wave-text-label wave-text-line2`}
                 >
                   the Results
                 </text>

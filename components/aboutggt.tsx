@@ -20,8 +20,6 @@ export default function AboutGGT() {
           box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
           backdrop-filter: blur(5px);
           overflow: visible;
-          transition: all 0.5s ease-in-out;
-          cursor: pointer;
         }
 
         .about-wrapper {
@@ -54,17 +52,6 @@ export default function AboutGGT() {
           left: 745.87px;
           width: 342.68px;
           height: 342.68px;
-          transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .about-container:hover .top-right-circle {
-          opacity: 0;
-        }
-
-        /* Hover Effects for Glows */
-        .about-container:hover::before {
-          width: 0;
-          height: 0;
         }
 
         /* Content - Left Side */
@@ -101,13 +88,6 @@ export default function AboutGGT() {
           position: absolute;
           top: 0;
           left: 0;
-          width: 0;
-          height: 0;
-          opacity: 0;
-          transition: none;
-        }
-
-        .about-container:hover .card-span::before {
           width: 0;
           height: 0;
           opacity: 0;

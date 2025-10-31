@@ -6,10 +6,10 @@ export default function WavesSection() {
   return (
     <>
       <style jsx>{`
-        @media (max-width: 390px) {
+        @media (min-width: 390px) and (max-width: 809px) {
           .waves-container {
-            width: 380px !important;
-            height: 200px !important;
+            width: 100% !important;
+            height: 150px !important;
           }
         }
       `}</style>

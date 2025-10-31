@@ -47,8 +47,12 @@ export default function BackgroundSection() {
         
         @media (min-width: 390px) and (max-width: 809px) {
           .newsletter-bg {
-            height: auto !important;
+            height: 150 !important;
             padding: 30px 0 !important;
+          }
+          
+          .newsletter-logo {
+            display: none !important;
           }
           
           .newsletter-content {
@@ -56,12 +60,15 @@ export default function BackgroundSection() {
             width: 100% !important;
             padding: 0 20px !important;
             gap: 15px !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: center !important;
           }
           
           .newsletter-heading {
             font-size: 16px !important;
             text-align: center !important;
-            width: 100% !important;
+            width: 350px !important;
             margin-bottom: 0 !important;
             font-family: 'Inter', sans-serif !important;
           }

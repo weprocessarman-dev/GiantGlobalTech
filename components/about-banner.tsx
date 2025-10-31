@@ -123,84 +123,96 @@ export default function AboutBanner() {
         </div>
       </div>
 
-      {/* Mobile Responsive Styles */}
       <style jsx>{`
-        @media (max-width: 1440px) {
+        .banner-container {
+          height: 150vh;
+          min-height: 600px;
+          max-height: 1200px;
+          background: #050b24;
+          overflow: hidden;
+        }
+        
+        .rectangle-container {
+          position: absolute;
+          top: 74%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          width: 1040px;
+          max-width: 95%;
+          background: rgba(135, 135, 135, 0.2);
+          border-radius: 20px;
+          border-top: 1px solid rgba(255, 255, 255, 0.3);
+          border-left: 1px solid rgba(255, 255, 255, 0.3);
+          border-right: 1px solid rgba(255, 255, 255, 0.3);
+          backdrop-filter: blur(10px);
+          padding: 40px 60px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
+        }
+        
+        .rectangle-heading {
+          font-size: 50px;
+          font-weight: 800;
+          background: linear-gradient(90deg, rgba(255, 255, 255, 0.2) 0%, #FFFFFF 50.49%, rgba(255, 255, 255, 0.2) 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          margin-bottom: 32px;
+        }
+        
+        .rectangle-paragraph {
+          font-size: 18px;
+          font-weight: 400;
+          line-height: 1.6;
+          color: rgba(255, 255, 255, 0.9);
+          padding-left: 40px;
+          padding-right: 40px;
+          margin-bottom: 24px;
+        }
+        
+        @media (min-width: 810px) and (max-width: 1199px) {
           .rectangle-container {
-            top: 70% !important;
+            width: 610px;
+            padding: 30px 40px;
+          }
+          
+          .rectangle-heading {
+            font-size: 40px;
+          }
+          
+          .rectangle-paragraph {
+            font-size: 16px;
+            padding-left: 30px;
+            padding-right: 30px;
           }
         }
         
-        @media (max-width: 768px) {
+        @media (min-width: 390px) and (max-width: 809px) {
           .banner-container {
-            height: 70vh;
+            height: 100vh;
             min-height: 500px;
           }
           
           .rectangle-container {
-            top: 75% !important;
-            width: 90% !important;
-            padding: 30px 30px !important;
-            font-size: 14px !important;
+            width: 350px;
+            padding: 20px 25px;
+            top: 70%;
           }
           
           .rectangle-heading {
-            font-size: 36px !important;
-            margin-bottom: 20px !important;
+            font-size: 28px;
+            margin-bottom: 20px;
           }
           
           .rectangle-paragraph {
-            font-size: 16px !important;
-            padding-left: 20px !important;
-            padding-right: 20px !important;
-            margin-bottom: 16px !important;
-          }
-        }
-        
-        @media (max-width: 480px) {
-          .banner-container {
-            height: 60vh;
-            min-height: 400px;
-            padding: 0 15px;
-          }
-          
-          .rectangle-container {
-            width: 95% !important;
-            padding: 20px 20px !important;
-          }
-          
-          .rectangle-heading {
-            font-size: 28px !important;
-            margin-bottom: 16px !important;
-          }
-          
-          .rectangle-paragraph {
-            font-size: 14px !important;
-            padding-left: 15px !important;
-            padding-right: 15px !important;
-            margin-bottom: 12px !important;
-            line-height: 1.5 !important;
-          }
-        }
-        
-        @media (orientation: landscape) and (max-height: 600px) {
-          .banner-container {
-            height: 100vh;
-            min-height: 100vh;
-          }
-          
-          .rectangle-container {
-            padding: 20px 40px !important;
-          }
-          
-          .rectangle-heading {
-            font-size: 32px !important;
-            margin-bottom: 12px !important;
-          }
-          
-          .rectangle-paragraph {
-            font-size: 14px !important;
-            margin-bottom: 8px !important;
+            font-size: 14px;
+            padding-left: 15px;
+            padding-right: 15px;
+            margin-bottom: 16px;
+            line-height: 1.5;
           }
         }
       `}</style>

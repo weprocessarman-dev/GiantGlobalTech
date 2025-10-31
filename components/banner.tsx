@@ -395,7 +395,7 @@ export default function Banner() {
           .banner-section .heading-text,
           .banner-section h1 {
             font-size: 20px !important;
-            top: 80px !important;
+            top: 90px !important;
             width: 100% !important;
             line-height: 1.2 !important;
           }
@@ -405,7 +405,7 @@ export default function Banner() {
             transform: translate(-50%, -50%) rotate(90deg) !important;
           }
           .banner-section .spline-container {
-            width: 390px !important;
+            width: 550px !important;
             height: 690px !important;
             transform: translate(-50%, -50%) !important;
           }
