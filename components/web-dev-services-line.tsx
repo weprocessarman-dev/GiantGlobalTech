@@ -1,7 +1,9 @@
 'use client';
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import WebDevServicesLineTablet from './web-dev-services-line-tablet';
+import WebDevServicesLineMobile from './web-dev-services-line-mobile';
 
 function ImgIcon({ src, alt }: { src: string, alt: string }) {
   return (
@@ -80,6 +82,26 @@ function WebDevServicesLine() {
   ];
 
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [isTablet, setIsTablet] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkViewport = () => {
+      setIsTablet(window.innerWidth >= 810 && window.innerWidth <= 1199);
+      setIsMobile(window.innerWidth >= 390 && window.innerWidth <= 809);
+    };
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
+    return () => window.removeEventListener('resize', checkViewport);
+  }, []);
+
+  if (isMobile) {
+    return <WebDevServicesLineMobile />;
+  }
+
+  if (isTablet) {
+    return <WebDevServicesLineTablet />;
+  }
 
   return (
     <section ref={ref} style={sectionContainer}>
@@ -97,8 +119,8 @@ function WebDevServicesLine() {
           </defs>
           
           <path
-            d="M 690 0 L 690 60 L 160 60 L 160 5000"
-            stroke="#3B82F6"
+            d="M 690 0 L 690 60 L 241 60 L 241 4742"
+            stroke="#00A8FF"
             strokeWidth="2.5"
             fill="none"
             strokeLinecap="square"
@@ -106,8 +128,8 @@ function WebDevServicesLine() {
             opacity="0.2"
           />
           <path
-            d="M 710 0 L 710 60 L 1200 60 L 1200 5000"
-            stroke="#3B82F6"
+            d="M 710 0 L 720 60 L 1161 60 L 1161 4742"
+            stroke="#00A8FF"
             strokeWidth="2.5"
             fill="none"
             strokeLinecap="square"
@@ -116,8 +138,8 @@ function WebDevServicesLine() {
           />
           
           <motion.path
-            d="M 690 0 L 690 60 L 160 60 L 160 5000"
-            stroke="#3B82F6"
+            d="M 690 0 L 690 60 L 241 60 L 241 4742"
+            stroke="#00A8FF"
             strokeWidth="2.5"
             fill="none"
             strokeLinecap="square"
@@ -126,8 +148,8 @@ function WebDevServicesLine() {
             pathLength={pathLength}
           />
           <motion.path
-            d="M 710 0 L 710 60 L 1200 60 L 1200 5000"
-            stroke="#3B82F6"
+            d="M 710 0 L 710 60 L 1161 60 L 1161 4742"
+            stroke="#00A8FF"
             strokeWidth="2.5"
             fill="none"
             strokeLinecap="square"
@@ -332,15 +354,15 @@ function WebDevServicesLine() {
           <div style={{ ...leftColumn, alignItems: 'flex-end', justifyContent: 'center' }}>
             <div style={{ ...serviceItems, alignItems: 'flex-end' }}>
               {services1Left.map((service, idx) => (
-                <div key={idx} style={{ ...serviceRow, alignItems: 'center', width: '100%', maxWidth: '500px', justifyContent: 'flex-end', position: 'relative' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '24px', justifyContent: 'flex-end' }}>
-                    <div style={iconWrapper} className="service-logo"><ImgIcon src={service.icon} alt={service.title} /></div>
+                <div key={idx} style={{ ...serviceRow, alignItems: 'center', width: '100%', maxWidth: '500px', justifyContent: 'flex-end' }}>
+                  <div style={iconWrapper} className="service-logo"><ImgIcon src={service.icon} alt={service.title} /></div>
+                  <div style={{ marginLeft: '30px' }}>
+                    <div style={dotMarker}></div>
                   </div>
                   <div style={{ ...serviceContent, ...serviceContentAlignLeft }}>
                     <h3 style={serviceHeading}>{service.title}<br/><span style={serviceHeadingBold}>{service.subtitle}</span></h3>
                     <p style={serviceParagraph}>{service.desc}</p>
                   </div>
-                  <div style={{ ...dotMarker, position: 'absolute', right: '380px' }}></div>
                 </div>
               ))}
             </div>
@@ -348,13 +370,13 @@ function WebDevServicesLine() {
           <div style={{ ...rightColumn, alignItems: 'flex-start', justifyContent: 'center' }}>
             <div style={{ ...serviceItems, alignItems: 'flex-start' }}>
               {services1Right.map((service, idx) => (
-                <div key={idx} style={{ ...serviceRowRight, alignItems: 'center', width: '100%', maxWidth: '500px', justifyContent: 'flex-start', position: 'relative' }}>
+                <div key={idx} style={{ ...serviceRowRight, alignItems: 'center', width: '100%', maxWidth: '500px', justifyContent: 'flex-start' }}>
                   <div style={{ ...serviceContent, ...serviceContentAlignRight }}>
                     <h3 style={serviceHeading}>{service.title}<br/><span style={serviceHeadingBold}>{service.subtitle}</span></h3>
                     <p style={serviceParagraph}>{service.desc}</p>
                   </div>
+                  <div style={dotMarker}></div>
                   <div style={iconWrapper} className="service-logo"><ImgIcon src={service.icon} alt={service.title} /></div>
-                  <div style={{ ...dotMarker, position: 'absolute', left: '347px' }}></div>
                 </div>
               ))}
             </div>
@@ -400,15 +422,15 @@ function WebDevServicesLine() {
           <div style={{ ...leftColumn, alignItems: 'flex-end', justifyContent: 'center' }}>
             <div style={{ ...serviceItems, alignItems: 'flex-end' }}>
               {services2Left.map((service, idx) => (
-                <div key={idx} style={{ ...serviceRow, alignItems: 'center', width: '100%', maxWidth: '500px', justifyContent: 'flex-end', position: 'relative' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '24px', justifyContent: 'flex-end' }}>
-                    <div style={iconWrapper} className="service-logo"><ImgIcon src={service.icon} alt={service.title} /></div>
+                <div key={idx} style={{ ...serviceRow, alignItems: 'center', width: '100%', maxWidth: '500px', justifyContent: 'flex-end' }}>
+                  <div style={iconWrapper} className="service-logo"><ImgIcon src={service.icon} alt={service.title} /></div>
+                  <div style={{ marginLeft: '30px' }}>
+                    <div style={dotMarker}></div>
                   </div>
                   <div style={{ ...serviceContent, ...serviceContentAlignLeft }}>
                     <h3 style={serviceHeading}>{service.title}<br/><span style={serviceHeadingBold}>{service.subtitle}</span></h3>
                     <p style={serviceParagraph}>{service.desc}</p>
                   </div>
-                  <div style={{ ...dotMarker, position: 'absolute', right: '380px' }}></div>
                 </div>
               ))}
             </div>
@@ -416,13 +438,13 @@ function WebDevServicesLine() {
           <div style={{ ...rightColumn, alignItems: 'flex-start', justifyContent: 'center' }}>
             <div style={{ ...serviceItems, alignItems: 'flex-start' }}>
               {services2Right.map((service, idx) => (
-                <div key={idx} style={{ ...serviceRowRight, alignItems: 'center', width: '100%', maxWidth: '500px', justifyContent: 'flex-start', position: 'relative' }}>
+                <div key={idx} style={{ ...serviceRowRight, alignItems: 'center', width: '100%', maxWidth: '500px', justifyContent: 'flex-start' }}>
                   <div style={{ ...serviceContent, ...serviceContentAlignRight }}>
                     <h3 style={serviceHeading}>{service.title}<br/><span style={serviceHeadingBold}>{service.subtitle}</span></h3>
                     <p style={serviceParagraph}>{service.desc}</p>
                   </div>
+                  <div style={dotMarker}></div>
                   <div style={iconWrapper} className="service-logo"><ImgIcon src={service.icon} alt={service.title} /></div>
-                  <div style={{ ...dotMarker, position: 'absolute', left: '347px' }}></div>
                 </div>
               ))}
             </div>
@@ -444,9 +466,10 @@ const sectionContainer: React.CSSProperties = {
 };
 
 const container: React.CSSProperties = {
-  maxWidth: "1400px",
+  maxWidth: "1200px",
   margin: "0 auto",
   position: "relative",
+  padding: "0 20px",
 };
 
 const linesSvgContainer: React.CSSProperties = {
@@ -493,19 +516,17 @@ const serviceItems: React.CSSProperties = {
 };
 
 const serviceRow: React.CSSProperties = {
-  display: "grid",
-  gridTemplateColumns: "auto auto 1fr",
+  display: "flex",
   alignItems: "center",
-  gap: "30px",
   width: "100%",
+  justifyContent: "flex-end",
 };
 
 const serviceRowRight: React.CSSProperties = {
-  display: "grid",
-  gridTemplateColumns: "1fr auto auto",
+  display: "flex",
   alignItems: "center",
-  gap: "30px",
   width: "100%",
+  justifyContent: "flex-start",
 };
 
 const serviceContent: React.CSSProperties = {
@@ -519,7 +540,7 @@ const serviceHeading: React.CSSProperties = {
   fontFamily: 'Inter',
   fontStyle: 'normal',
   fontWeight: 700,
-  fontSize: 'clamp(20px, 4vw, 32px)',
+  fontSize: '28px',
   lineHeight: '50px',
   background: 'linear-gradient(90deg, rgba(255,255,255,0.2) 0%, #FFFFFF 50.49%, rgba(255,255,255,0.2) 100%)',
   WebkitBackgroundClip: 'text',
@@ -529,6 +550,7 @@ const serviceHeading: React.CSSProperties = {
   marginBottom: '8px',
   padding: 0,
   width: 'fit-content',
+  whiteSpace: 'nowrap',
 };
 
 const serviceHeadingBold: React.CSSProperties = {
@@ -551,22 +573,22 @@ const serviceParagraph: React.CSSProperties = {
 
 const serviceContentAlignLeft: React.CSSProperties = {
   textAlign: 'left',
-  marginLeft: '32px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
   justifyContent: 'center',
-  minWidth: '350px',
+  minWidth: '275px',
+  marginLeft: '40px',
 };
 
 const serviceContentAlignRight: React.CSSProperties = {
   textAlign: 'right',
-  marginRight: '32px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-end',
   justifyContent: 'center',
-  minWidth: '350px',
+  minWidth: '275px',
+  marginRight: '40px',
 };
 
 const imageIcon: React.CSSProperties = {
@@ -584,17 +606,16 @@ const imageIcon: React.CSSProperties = {
 const dotMarker: React.CSSProperties = {
   width: "12px",
   height: "12px",
-  background: "#3B82F6",
+  background: "#3879E7",
   borderRadius: "50%",
-  boxShadow: "0 0 20px #3B82F6",
+  boxShadow: "0 0 20px #3879E7",
   flexShrink: 0,
   zIndex: 3,
-  position: "relative",
 };
 
 const iconWrapper: React.CSSProperties = {
-  width: "clamp(120px, 20vw, 204.68px)",
-  height: "clamp(120px, 20vw, 204.68px)",
+  width: "205px",
+  height: "205px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
