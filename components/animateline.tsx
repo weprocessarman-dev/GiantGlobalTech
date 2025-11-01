@@ -1,7 +1,9 @@
 'use client';
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
+import ServiceSectionTablet from './animateline-tablet';
+import ServiceSectionMobile from './animateline-mobile';
 
 // Component to render service icon image
 function ImgIcon({ src, alt }: { src: string, alt: string }) {
@@ -38,6 +40,26 @@ function ServiceSection() {
     }
   ];
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
+  const [isTablet, setIsTablet] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkViewport = () => {
+      setIsTablet(window.innerWidth >= 810 && window.innerWidth <= 1199);
+      setIsMobile(window.innerWidth >= 390 && window.innerWidth <= 809);
+    };
+    checkViewport();
+    window.addEventListener('resize', checkViewport);
+    return () => window.removeEventListener('resize', checkViewport);
+  }, []);
+
+  if (isMobile) {
+    return <ServiceSectionMobile />;
+  }
+
+  if (isTablet) {
+    return <ServiceSectionTablet />;
+  }
 
   return (
     <section ref={ref} style={sectionContainer}>
@@ -51,13 +73,13 @@ function ServiceSection() {
               <feMerge>
                 <feMergeNode in="coloredBlur"/>
                 <feMergeNode in="SourceGraphic"/>
-              </feMerge>
+              </feMerge>                        
             </filter>
           </defs>
           
           {/* Static Structure Lines - Always Visible */}
           <path
-            d="M 690 0 L 690 60 L 160 60 L 160 2000"
+            d="M 690 0 L 690 60 L 245 60 L 245 1660"
             stroke="#00A8FF"
             strokeWidth="2.5"
             fill="none"
@@ -66,7 +88,7 @@ function ServiceSection() {
             opacity="0.2"
           />
           <path
-            d="M 710 0 L 710 60 L 1200 60 L 1200 2000"
+            d="M 710 0 L 710 60 L 1156 60 L 1156 1660"
             stroke="#00A8FF"
             strokeWidth="2.5"
             fill="none"
@@ -77,7 +99,7 @@ function ServiceSection() {
           
           {/* Animated Glow Lines - Run on top of structure */}
           <motion.path
-            d="M 690 0 L 690 60 L 160 60 L 160 2000"
+            d="M 690 0 L 690 60 L 245 60 L 245 1660"
             stroke="#00A8FF"
             strokeWidth="2.5"
             fill="none"
@@ -87,7 +109,7 @@ function ServiceSection() {
             pathLength={pathLength}
           />
           <motion.path
-            d="M 710 0 L 710 60 L 1200 60 L 1200 2000"
+            d="M 710 0 L 710 60 L 1156 60 L 1156 1660"
             stroke="#00A8FF"
             strokeWidth="2.5"
             fill="none"
@@ -291,7 +313,7 @@ function ServiceSection() {
               <span className="card-span"></span>
               <div className="card-content">
                 <h3 style={{
-                  fontSize: '50px',
+                  fontSize: '30px',
                   fontWeight: 600,
                   background: 'linear-gradient(90deg, rgba(255,255,255,0.2) 0%, #FFFFFF 50%, rgba(255,255,255,0.2) 100%)',
                   backgroundClip: 'text',
@@ -320,8 +342,8 @@ function ServiceSection() {
             <div style={{ ...serviceItems, alignItems: 'flex-end' }}>
               {/* Identity Design */}
               <div style={{ ...serviceRow, alignItems: 'center', width: '100%', maxWidth: '500px', justifyContent: 'flex-end' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '24px', justifyContent: 'flex-end' }}>
-                  <div style={iconWrapper} className="service-logo-1"><ImgIcon src="/ringslogo.png" alt="Identity Design" /></div>
+                <div style={iconWrapper} className="service-logo-1"><ImgIcon src="/ringslogo.png" alt="Identity Design" /></div>
+                <div style={{ marginLeft: '30px' }}>
                   <div style={dotMarker}></div>
                 </div>
                 <div style={{ ...serviceContent, ...serviceContentAlignLeft }}>
@@ -406,9 +428,10 @@ const sectionContainer: React.CSSProperties = {
 };
 
 const container: React.CSSProperties = {
-  maxWidth: "1400px",
+  maxWidth: "1200px",
   margin: "0 auto",
   position: "relative",
+  padding: "0 20px",
 };
 
 const linesSvgContainer: React.CSSProperties = {
@@ -455,19 +478,17 @@ const serviceItems: React.CSSProperties = {
 };
 
 const serviceRow: React.CSSProperties = {
-  display: "grid",
-  gridTemplateColumns: "auto auto 1fr",
+  display: "flex",
   alignItems: "center",
-  gap: "30px",
   width: "100%",
+  justifyContent: "flex-end",
 };
 
 const serviceRowRight: React.CSSProperties = {
-  display: "grid",
-  gridTemplateColumns: "1fr auto auto",
+  display: "flex",
   alignItems: "center",
-  gap: "30px",
   width: "100%",
+  justifyContent: "flex-start",
 };
 
 const serviceContent: React.CSSProperties = {
@@ -481,7 +502,7 @@ const serviceHeading: React.CSSProperties = {
   fontFamily: 'Inter',
   fontStyle: 'normal',
   fontWeight: 700,
-  fontSize: 'clamp(20px, 4vw, 32px)',
+  fontSize: '28px',
   lineHeight: '50px',
   background: 'linear-gradient(90deg, rgba(255,255,255,0.2) 0%, #FFFFFF 50.49%, rgba(255,255,255,0.2) 100%)',
   WebkitBackgroundClip: 'text',
@@ -510,26 +531,27 @@ const serviceParagraph: React.CSSProperties = {
   margin: 0,
   width: '272.73px',
   maxWidth: '100%',
+  textAlign: 'inherit',
 };
 
 const serviceContentAlignLeft: React.CSSProperties = {
   textAlign: 'left',
-  marginLeft: '32px',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
   justifyContent: 'center',
   minWidth: '275px',
+  marginLeft: '40px',
 };
 
 const serviceContentAlignRight: React.CSSProperties = {
-  textAlign: 'left',
-  marginRight: '32px',
+  textAlign: 'right',
   display: 'flex',
   flexDirection: 'column',
-  alignItems: 'flex-start',
+  alignItems: 'flex-end',
   justifyContent: 'center',
   minWidth: '275px',
+  marginRight: '40px',
 };
 
 const imageIcon: React.CSSProperties = {
@@ -555,8 +577,8 @@ const dotMarker: React.CSSProperties = {
 };
 
 const iconWrapper: React.CSSProperties = {
-  width: "clamp(120px, 20vw, 204.68px)",
-  height: "clamp(120px, 20vw, 204.68px)",
+  width: "205px",
+  height: "205px",
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
@@ -576,7 +598,7 @@ if (typeof window !== 'undefined') {
       }
       .service-section-main {
         grid-template-columns: 1fr !important;
-        gap: 40px !important;
+        gap: 50px !important;
         padding: 0 10px !important;
       }
       .service-items {

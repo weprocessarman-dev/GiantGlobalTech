@@ -6,20 +6,7 @@ import Waves from './Waves';
 export default function DesignBanner() {
   return (
     <div style={{ width: '100%', position: 'relative', background: 'transparent', overflow: 'visible', maxWidth: '100%' }}>
-      <style jsx>{`
-
-      `}</style>
-      <section
-        className="banner-section"
-        style={{
-          width: '100%',
-          height: 'min(890px, 100vh)',
-          overflow: 'visible',
-          position: 'relative',
-          zIndex: 0,
-          background: 'transparent',
-        }}
-      >
+      <section className="banner-section">
         {/* Waves with Background Image Colors */}
         <Waves
           lineColor="rgba(255, 255, 255, 0.8)"
@@ -38,79 +25,121 @@ export default function DesignBanner() {
         />
 
 
-        <div style={{ position: 'absolute', inset: 0, zIndex: 10 }}>
-          <h1
-            className="banner-title"
-            style={{
-              position: 'absolute',
-              width: '90%',
-              maxWidth: '1200px',
-              left: '50%',
-              top: '45%',
-              transform: 'translateX(-50%)',
-              fontFamily: 'Inter',
-              fontStyle: 'normal',
-              fontWeight: 700,
-              fontSize: 'clamp(60px, 16.8vw, 150px)',
-              lineHeight: '1',
-              textAlign: 'center',
-              background: 'linear-gradient(90deg, rgba(255,255,255,0.2) 0%, #FFFFFF 50.49%, rgba(255,255,255,0.2) 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-              color: 'transparent',
-              margin: 0,
-              padding: 0,
-              userSelect: 'none',
-            }}
-          >
+        <div className="banner-content">
+          <h1 className="banner-title">
             DESIGN
           </h1>
-          <p
-            className="banner-text"
-            style={{
-              position: 'absolute',
-              width: '85%',
-              maxWidth: '652.46px',
-              left: '50%',
-              top: '62%',
-              transform: 'translateX(-50%)',
-              fontFamily: 'Inter',
-              fontStyle: 'normal',
-              fontWeight: 400,
-              fontSize: 'clamp(14px, 2vw, 18px)',
-              lineHeight: '1.4',
-              textAlign: 'center',
-              color: '#FFFFFF',
-              margin: 0,
-              padding: 0,
-              userSelect: 'none',
-            }}
-          >
-            Lorem ipsum dolor sit amet, consectetur elit, sed tempor dolor sit amet, consectetur elit, ipsum
+          <p className="banner-text">
+            Lorem ipsum dolor sit amet, consectetur elit, <br />sed tempor dolor sit amet, consectetur elit, ipsum
           </p>
         </div>
         
-        {/* Flare Image at Bottom Border */}
       </section>
       
-      {/* Flare Image on Bottom Border */}
-      <img
-        src="/Flare.png"
-        alt="Flare"
-        className="flare-image"
-        style={{
-          position: 'absolute',
-          bottom: 0,
-          left: '50%',
-          transform: 'translateX(-50%) translateY(50%)',
-          width: '150%',
-          height: 'auto',
-          zIndex: 10,
-          pointerEvents: 'none',
-          mixBlendMode: 'lighten',
-        }}
-      />
+      <img src="/Flare.png" alt="Flare" className="flare-image" />
+
+      <style jsx>{`
+        .banner-section {
+          width: 100%;
+          height: min(890px, 100vh);
+          overflow: visible;
+          position: relative;
+          z-index: 0;
+          background: transparent;
+        }
+
+        .banner-content {
+          position: absolute;
+          inset: 0;
+          z-index: 10;
+        }
+
+        .banner-title {
+          position: absolute;
+          width: 800px;
+          left: 50%;
+          top: 45%;
+          transform: translateX(-50%);
+          font-family: Inter;
+          font-style: normal;
+          font-weight: 700;
+          font-size: 100px;
+          line-height: 1;
+          text-align: center;
+          background: linear-gradient(90deg, rgba(255,255,255,0.2) 0%, #FFFFFF 50.49%, rgba(255,255,255,0.2) 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+          color: transparent;
+          margin: 0;
+          padding: 0;
+          user-select: none;
+        }
+
+        .banner-text {
+          position: absolute;
+          width: 800px;
+          left: 50%;
+          top: 62%;
+          transform: translateX(-50%);
+          font-family: Inter;
+          font-style: normal;
+          font-weight: 400;
+          font-size: 18px;
+          line-height: 1.4;
+          text-align: center;
+          color: #FFFFFF;
+          margin: 0;
+          padding: 0;
+          user-select: none;
+        }
+
+        .flare-image {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%) translateY(50%);
+          width: 150%;
+          height: auto;
+          z-index: 10;
+          pointer-events: none;
+          mix-blend-mode: lighten;
+        }
+
+        @media (min-width: 810px) and (max-width: 1199px) {
+          .banner-section {
+            height: 590px;
+          }
+
+          .banner-title {
+            font-size: 80px;
+          }
+
+          .banner-text {
+            font-size: 16px;
+          }
+        }
+
+        @media (max-width: 809px) {
+          .banner-section {
+            height: 486px;
+          }
+
+          .banner-title {
+            width: 390px;
+            font-size: 40px;
+          }
+
+          .banner-text {
+            width: 390px;
+            font-size: 12px;
+          }
+
+          .flare-image {
+            width: 200%;
+          }
+        }
+      `}</style>
     </div>
   );
 }
